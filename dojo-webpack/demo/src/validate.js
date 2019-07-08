@@ -1,3 +1,4 @@
+// var _ = require('loadash') ; // can't resolve 'loadash' 或者 can't resolve 'loadash/main'
 require(["dijit/form/Form","dijit/form/ValidationTextBox"], function (Form,ValidationTextBox ) {
     var form = new Form({
         
