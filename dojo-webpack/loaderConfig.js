@@ -34,6 +34,12 @@ function getConfig(env) {
 				location: env.dojoRoot + '/dojox',
 				lib: '.'
 			}
+			// dojo loader need main.js, but loadash dosen't have
+			// ,{
+			// 	name: 'loadash',
+			// 	location: env.dojoRoot + '/loadash',
+			// 	lib: '.'
+			// }
 		],
 
 		paths: {
