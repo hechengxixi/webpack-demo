@@ -1,0 +1,802 @@
+[
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.widgets.welllog.Axis",
+      "properties": {
+         "auto_label_rotation": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Axis/auto_label_rotation",
+            "$ref": "/geotoolkit.axis.Axis/properties/autolabelrotation"
+         },
+         "id": {
+            "description": "The id of the axis for reference and indexing",
+            "id": "/geotoolkit.welllog.widgets.welllog.Axis/properties/axis/properties/id",
+            "title": "ID",
+            "type": "string"
+         },
+         "major_labels": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Axis/properties/axis/properties/major_labels",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.axis.TickGenerator/properties/labelstyles/properties/MAJOR"
+               }
+            ]
+         },
+         "major_ticks": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Axis/properties/axis/properties/major_ticks",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.axis.TickGenerator/properties/tickstyles/properties/MAJOR"
+               }
+            ]
+         },
+         "minor_ticks": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Axis/properties/axis/properties/minor_ticks",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.axis.TickGenerator/properties/tickstyles/properties/MINOR"
+               }
+            ]
+         },
+         "name": {
+            "description": "The name of this node to be referenced later.",
+            "id": "/geotoolkit.welllog.widgets.welllog.Axis/properties/axis/properties/name",
+            "title": "Name",
+            "type": "string"
+         },
+         "cg_type": {
+            "default": "axis",
+            "description": "This parameter is for the deserializer to know which class to create.",
+            "enum": [
+               "axis"
+            ],
+            "id": "/geotoolkit.welllog.widgets.welllog.Axis/properties/axis/properties/cg_type",
+            "title": "Component Type",
+            "type": "string"
+         },
+         "visible": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Axis/properties/axis/properties/visible",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.scene.Node/properties/isVisible"
+               }
+            ]
+         },
+         "header": {
+            "id": "//geotoolkit.welllog.widgets.welllog.Axis/properties/header",
+            "description": "Log axis visual header",
+            "oneOf": [
+               {
+                  "$ref": "geotoolkit.welllog.widgets.welllog.LogAxisVisualHeader"
+               }
+            ],
+            "required": false
+         }
+      },
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve",
+      "type": "object",
+      "properties": {
+         "id": {
+            "description": "The object containing the id and well id of the curve",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/id",
+            "title": "ID",
+            "type": "object",
+            "properties": {
+               "id": {
+                  "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/id/properties/id",
+                  "description": "The id of the curve for reference and indexing",
+                  "oneOf": [
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "wellId": {
+                  "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/id/properties/wellId",
+                  "description": "The id of the well to which the curve belongs",
+                  "oneOf": [
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               }
+            }
+         },
+         "cg_type": {
+            "default": "compositecurve",
+            "description": "This parameter is for the deserializer to know which class to create.",
+            "enum": [
+               "compositecurve"
+            ],
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/cg_type",
+            "title": "Component Type",
+            "type": "string"
+         },
+         "name": {
+            "description": "The name of this node to be referenced later.",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/name",
+            "title": "Name",
+            "type": "string"
+         },
+         "unit_symbol": {
+            "description": "Symbol representing the unit of measure",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/unit_symbol",
+            "title": "Unit Symbol",
+            "type": "string"
+         },
+         "display_mode": {
+            "additionalItems": false,
+            "default": [],
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/display_mode",
+            "description": "The display mode of the log curve",
+            "items": {
+               "enum": [
+                  "line",
+                  "symbol",
+                  "value"
+               ],
+               "type": "string"
+            },
+            "type": "array",
+            "uniqueItems": true
+         },
+         "logarithmic_scale": {
+            "default": false,
+            "description": "Flag defining if the grid has to be ligarithmic",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/logarithmic_scale",
+            "title": "Logarithmic",
+            "type": "boolean"
+         },
+         "micro_positon_left": {
+            "default": 0,
+            "description": "allows application code to display the curve in a subarea of the track",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/micro_positon_left",
+            "minimum": 0,
+            "maximum": 1,
+            "title": "Micro Position Left",
+            "type": "number"
+         },
+         "micro_positon_right": {
+            "default": 1,
+            "description": "allows application code to display the curve in a subarea of the track",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/micro_positon_right",
+            "minimum": 0,
+            "maximum": 1,
+            "title": "Micro Position Right",
+            "type": "number"
+         },
+         "gapfillcutoff_value": {
+            "default": 0,
+            "description": "cutoff used for removing NaN valued samples",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/gapfillcutoff_value",
+            "title": "Gap Fill Value",
+            "type": "number"
+         },
+         "gapfillcutoff_unit_symbol": {
+            "description": "The symbol representing the unit of the value which is used to display NaN values.",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/gapfillcutoff_unit_symbol",
+            "title": "Gap Fill Value Symbol",
+            "oneOf": [
+               {
+                  "type": "string"
+               },
+               {
+                  "type": "null"
+               }
+            ]
+         },
+         "interpolation": {
+            "default": "Linear",
+            "description": "The type of interpolation used to connect data points",
+            "enum": [
+               "Linear",
+               "MiddleStep",
+               "EndStep",
+               "StartStep"
+            ],
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/interpolation",
+            "title": "Interpolation Type",
+            "type": "string"
+         },
+         "wrapping": {
+            "default": false,
+            "description": "Flag defining if wrapping should be enabled",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/wrapping",
+            "title": "Wrapping",
+            "type": "boolean"
+         },
+         "limits_type": {
+            "default": 2,
+            "description": "The type of limits to use with the curve",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/limits_type",
+            "title": "Limits Type",
+            "type": "integer"
+         },
+         "custom_limits_minimum": {
+            "default": 0,
+            "description": "Minimum normalization or clipping (if wrapping enabled) limit",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/custom_limits_minimum",
+            "title": "Custom Limits Minimum",
+            "type": "number"
+         },
+         "custom_limits_maximum": {
+            "default": 0,
+            "description": "Maximum normalization or clipping (if wrapping enabled) limit",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/custom_limits_maximum",
+            "title": "Custom Limits Maximum",
+            "type": "number"
+         },
+         "linestyle": {
+            "description": "The line style of the curve",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/linestyle",
+            "title": "Line Style",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.welllog.LogAbstractVisual/properties/linestyle"
+               }
+            ]
+         },
+         "linegradient": {
+            "description": "",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/linegradient",
+            "title": "Line Gradient",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.welllog.attributes.LogGradientStyle"
+               },
+               {
+                  "type": "null"
+               }
+            ]
+         },
+         "textstyle": {
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/textstyle",
+            "description": "The text style of the curve labels",
+            "title": "Text Style",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.TextStyle"
+               }
+            ]
+         },
+         "left_filltype": {
+            "default": "positive",
+            "description": "The type of the fill on the left of the curve.",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/left_filltype",
+            "title": "Left Fill Type",
+            "oneOf": [
+               {
+                  "enum": [
+                     "single",
+                     "dual",
+                     "positive",
+                     "negative",
+                     "positiveandnegative",
+                     "left",
+                     "right",
+                     "leftandright",
+                     "SINGLE",
+                     "DUAL",
+                     "POSITIVE",
+                     "NEGATIVE",
+                     "POSITIVEANDNEGATIVE",
+                     "LEFT",
+                     "RIGHT",
+                     "LEFTANDRIGHT"
+                  ],
+                  "type": "string"
+               },
+               {
+                  "type": "null"
+               }
+            ]
+         },
+         "right_filltype": {
+            "default": "negative",
+            "description": "The type of the fill on the right of the curve.",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/right_filltype",
+            "title": "The Right Fill Type Schema",
+            "oneOf": [
+               {
+                  "enum": [
+                     "single",
+                     "dual",
+                     "positive",
+                     "negative",
+                     "positiveandnegative",
+                     "left",
+                     "right",
+                     "leftandright",
+                     "SINGLE",
+                     "DUAL",
+                     "POSITIVE",
+                     "NEGATIVE",
+                     "POSITIVEANDNEGATIVE",
+                     "LEFT",
+                     "RIGHT",
+                     "LEFTANDRIGHT"
+                  ],
+                  "type": "string"
+               },
+               {
+                  "type": "null"
+               }
+            ]
+         },
+         "left_reference": {
+            "description": "A reference to a log point set used to fill the left of the curve",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/left_reference",
+            "title": "Left Reference Points",
+            "type": "string"
+         },
+         "right_reference": {
+            "description": "A reference to a log point set used to fill the right of the curve",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/right_reference",
+            "title": "Left Reference Points",
+            "type": "string"
+         },
+         "left_fill": {
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/left_fill",
+            "description": "The fill to the left of the curve",
+            "title": "Left Fill",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.welllog.LogFill"
+               },
+               {
+                  "type": "null"
+               }
+            ]
+         },
+         "right_fill": {
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/right_fill",
+            "description": "The fill to the right of the curve",
+            "title": "Right Fill",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.welllog.LogFill"
+               },
+               {
+                  "type": "null"
+               }
+            ]
+         },
+         "decimation_rate": {
+            "default": 1,
+            "description": "The step which is used to decimate the points.",
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/decimation_rate",
+            "title": "Decimation Rate",
+            "type": "number"
+         },
+         "text_reference": {
+            "default": "sample",
+            "description": "Sample's text reference",
+            "enum": [
+               "sample",
+               "track"
+            ],
+            "id": "/geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/text_reference",
+            "title": "Text Reference",
+            "type": "string"
+         },
+         "text_anchor": {
+            "description": "The alignment of the text",
+            "title": "Text Anchor",
+            "type": "integer",
+            "oneOf": [
+               {
+                  "$ref": "geotoolkit.util.AnchorType"
+               }
+            ]
+         },
+         "header": {
+            "id": "//geotoolkit.welllog.widgets.welllog.CompositeCurve/properties/header",
+            "description": "Adaptive log curve visual header",
+            "oneOf": [
+               {
+                  "$ref": "geotoolkit.welllog.widgets.welllog.AdaptiveLogCurveVisualHeader"
+               }
+            ],
+            "required": false
+         }
+      }
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.welllog.widgets.welllog.Track",
+      "properties": {
+         "name": {
+            "description": "The name of the track",
+            "id": "/geotoolkit.welllog.widgets.welllog.Track/properties/name",
+            "title": "Track Name",
+            "oneOf": [
+               {
+                  "type": "string"
+               },
+               {
+                  "type": "null"
+               }
+            ],
+            "required": false
+         },
+         "type": {
+            "default": "custom",
+            "description": "The type of track defining what contents the track will have",
+            "enum": [
+               "log",
+               "index",
+               "linear",
+               "annotated",
+               "custom"
+            ],
+            "id": "/geotoolkit.welllog.widgets.welllog.Track/properties/type",
+            "title": "Track Type",
+            "type": "string",
+            "required": false
+         },
+         "block": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Track/properties/block",
+            "title": "Log Block",
+            "description": "Visual displaying the blocks of the depths",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.welllog.LogBlock"
+               }
+            ]
+         },
+         "width": {
+            "description": "The width of the track in model",
+            "minimum": 0,
+            "id": "/geotoolkit.welllog.widgets.welllog.Track/properties/width",
+            "title": "Track Width",
+            "type": "number"
+         },
+         "fillstyle": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Track/properties/fillstyle",
+            "title": "Fill Style",
+            "description": "The fill style of the track",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.FillStyle"
+               }
+            ],
+            "required": false
+         },
+         "axis": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Track/properties/axis",
+            "title": "Axis",
+            "description": "An axis inserted into the track",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.welllog.widgets.welllog.Axis"
+               }
+            ]
+         },
+         "visuals": {
+            "additionalItems": true,
+            "id": "/geotoolkit.welllog.widgets.welllog.Track/properties/visuals",
+            "items": {
+               "anyOf": [
+                  {
+                     "$ref": "/geotoolkit.welllog.widgets.welllog.CompositeCurve"
+                  },
+                  {
+                     "$ref": "/geotoolkit.welllog.LogReferenceLine"
+                  },
+                  {
+                     "$ref": "/geotoolkit.welllog.LogCurve"
+                  }
+               ]
+            },
+            "type": "array",
+            "uniqueItems": false
+         },
+         "header": {
+            "id": "//geotoolkit.welllog.widgets.welllog.Track/properties/header",
+            "description": "Log track header",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.welllog.widgets.welllog.Header"
+               }
+            ],
+            "required": false
+         }
+      },
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.welllog.widgets.welllog.Header",
+      "properties": {
+         "visible": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Header/properties/visible",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.scene.Node/properties/isVisible"
+               }
+            ]
+         },
+         "visibletracktitle": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Header/properties/visibletracktitle",
+            "description": "determine if the title is visible",
+            "type": "boolean"
+         },
+         "firsttolast": {
+            "id": "/geotoolkit.welllog.widgets.welllog.Header/properties/firsttolast",
+            "description": "order of the track child headers",
+            "type": "boolean"
+         },
+         "titlefirst": {
+            "id": "geotoolkit.welllog.widgets.welllog.Header/properties/titlefirst",
+            "description": "order of the track title header",
+            "type": "boolean"
+         },
+         "toptobottom": {
+            "id": "geotoolkit.welllog.widgets.welllog.Header/properties/toptobottom",
+            "description": "position of the track child headers",
+            "type": "boolean"
+         },
+         "isbordervisible": {
+            "id": "geotoolkit.welllog.widgets.welllog.Header/properties/isbordervisible",
+            "type": "boolean"
+         },
+         "borderlinestyle": {
+            "id": "geotoolkit.welllog.widgets.welllog.Header/properties/borderlinestyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.LineStyle"
+               }
+            ]
+         },
+         "title": {
+            "id": "geotoolkit.welllog.widgets.welllog.Header/properties/title",
+            "description": "Log track visual header",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.welllog.widgets.welllog.TrackVisualHeader"
+               }
+            ],
+            "required": false
+         }
+      },
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.welllog.widgets.welllog.TrackVisualHeader",
+      "properties": {
+         "visible": {
+            "id": "/geotoolkit.welllog.widgets.welllog.TrackVisualHeader/properties/visible",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.scene.Node/properties/isVisible"
+               }
+            ]
+         },
+         "linestyle": {
+            "id": "/geotoolkit.welllog.widgets.welllog.TrackVisualHeader/properties/linestyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.LineStyle"
+               }
+            ]
+         },
+         "textstyle": {
+            "id": "/geotoolkit.welllog.widgets.welllog.TrackVisualHeader/properties/textstyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.TextStyle"
+               }
+            ]
+         },
+         "fillstyle": {
+            "id": "geotoolkit.welllog.widgets.welllog.TrackVisualHeader/properties/fillstyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.FillStyle"
+               }
+            ]
+         },
+         "adaptiveheight": {
+            "id": "geotoolkit.welllog.widgets.welllog.TrackVisualHeader/properties/adaptiveheight",
+            "description": "determine if display the title in multi lines",
+            "type": "boolean"
+         },
+         "autolabelrotation": {
+            "id": "geotoolkit.welllog.widgets.welllog.TrackVisualHeader/properties/autolabelrotation",
+            "description": "determine if rotate the title with 90 degree when narrow the header",
+            "type": "boolean"
+         },
+         "labelrotationangle": {
+            "id": "geotoolkit.welllog.widgets.welllog.TrackVisualHeader/properties/labelrotationangle",
+            "description": "specify title rotation angle",
+            "type": "number"
+         }
+      },
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.welllog.widgets.welllog.AxisVisualHeader",
+      "properties": {
+         "visible": {
+            "id": "/geotoolkit.welllog.widgets.welllog.AxisVisualHeader/properties/visible",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.scene.Node/properties/isVisible"
+               }
+            ]
+         },
+         "linestyle": {
+            "id": "/geotoolkit.welllog.widgets.welllog.AxisVisualHeader/properties/linestyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.LineStyle"
+               }
+            ]
+         },
+         "textstyle": {
+            "id": "/geotoolkit.welllog.widgets.welllog.AxisVisualHeader/properties/textstyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.TextStyle"
+               }
+            ]
+         },
+         "fillstyle": {
+            "id": "geotoolkit.welllog.widgets.welllog.AxisVisualHeader/properties/fillstyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.FillStyle"
+               }
+            ]
+         },
+         "headertype": {
+            "id": "geotoolkit.welllog.widgets.welllog.AxisVisualHeader/properties/headertype",
+            "description": "Enum of header type",
+            "type": "string"
+         },
+         "valuetypestyle": {
+            "id": "geotoolkit.welllog.widgets.welllog.AxisVisualHeader/properties/valuetypestyle",
+            "description": "value type style specify how to display a scale value",
+            "type": "integer"
+         },
+         "autolabelrotation": {
+            "id": "geotoolkit.welllog.widgets.welllog.AxisVisualHeader/properties/autolabelrotation",
+            "description": "determine if rotate the title with 90 degree when narrow the header",
+            "type": "boolean"
+         },
+         "labelrotationangle": {
+            "id": "geotoolkit.welllog.widgets.welllog.AxisVisualHeader/properties/labelrotationangle",
+            "description": "specify title rotation angle",
+            "type": "number"
+         }
+      },
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.welllog.widgets.welllog.AdaptiveCurveHeader",
+      "properties": {
+         "visible": {
+            "id": "/geotoolkit.welllog.widgets.welllog.AdaptiveCurveHeader/properties/visible",
+            "allOf": [
+               {
+                  "$ref": "/geotoolkit.scene.Node/properties/isVisible"
+               }
+            ]
+         },
+         "linestyle": {
+            "id": "/geotoolkit.welllog.widgets.welllog.AdaptiveCurveHeader/properties/linestyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.LineStyle"
+               }
+            ]
+         },
+         "textstyle": {
+            "id": "/geotoolkit.welllog.widgets.welllog.AdaptiveCurveHeader/properties/textstyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.TextStyle"
+               }
+            ]
+         },
+         "fillstyle": {
+            "id": "geotoolkit.welllog.widgets.welllog.AdaptiveCurveHeader/properties/fillstyle",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.FillStyle"
+               }
+            ]
+         },
+         "gap": {
+            "id": "geotoolkit.welllog.widgets.welllog.AdaptiveCurveHeader/properties/gap",
+            "description": "the gap between header line and text in pixel",
+            "type": "number"
+         },
+         "order": {
+            "id": "geotoolkit.welllog.widgets.welllog.AdaptiveCurveHeader/properties/order",
+            "description": "spatial order of textual elements: first 'Left-to-right' then 'top-to-bottom'",
+            "type": "array",
+            "items": {
+               "type": "string"
+            }
+         },
+         "priority": {
+            "id": "geotoolkit.welllog.widgets.welllog.AdaptiveCurveHeader/properties/priority",
+            "description": "'least-to-most' important textual elements",
+            "type": "array",
+            "items": {
+               "type": "string"
+            }
+         },
+         "elements": {
+            "id": "geotoolkit.welllog.widgets.welllog.AdaptiveCurveHeader/properties/elements",
+            "type": "array",
+            "items": {
+               "type": "object"
+            }
+         }
+      },
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.widgets.WellLogWidget",
+      "desctiption": "A JSON schema describing abstract log visual",
+      "title": "Abstract Log Visual Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "properties": {
+               "type": {
+                  "default": "welllog",
+                  "id": "/geotoolkit.welllog.widgets.WellLogWidget/properties/type",
+                  "title": "WellLog Widget",
+                  "description": "The schema describing the geotoolkit WellLog Widget",
+                  "enum": [
+                     "welllog"
+                  ],
+                  "type": "string"
+               },
+               "orientation": {
+                  "id": "/geotoolkit.welllog.widgets.WellLogWidget/properties/orientation",
+                  "default": "vertical",
+                  "type": "string",
+                  "enum": [
+                     "vertical",
+                     "horizontal"
+                  ],
+                  "description": "The orientation in which the widget is presented",
+                  "title": "Orientation"
+               },
+               "tracks": {
+                  "id": "/geotoolkit.welllog.widgets.WellLogWidget/properties/tracks",
+                  "type": "array",
+                  "additionalProperties": true,
+                  "description": "An array holding all the tracks registered to this widget",
+                  "title": "Tracks",
+                  "items": {
+                     "$ref": "/geotoolkit.welllog.widgets.welllog.Track"
+                  }
+               }
+            }
+         }
+      ]
+   }
+]

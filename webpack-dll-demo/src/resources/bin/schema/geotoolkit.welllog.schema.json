@@ -1,0 +1,1731 @@
+[
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.Log2DVisual",
+      "desctiption": "A JSON schema describing array log visual",
+      "title": "2D Log Visual",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.welllog.LogAbstractVisual"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "default": "geotoolkit.welllog.Log2DVisual",
+                  "description": "An explanation about the purpose of this instance.",
+                  "enum": [
+                     "geotoolkit.welllog.Log2DVisual"
+                  ],
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/ClassName",
+                  "title": "Class Name",
+                  "type": "string"
+               },
+               "colorprovider": {
+                  "description": "A class which provides the color for te specified value",
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/colorprovider",
+                  "title": "Color Provider",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "object"
+                     }
+                  ]
+               },
+               "offsets": {
+                  "additionalItems": true,
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/offsets",
+                  "description": "An array of the offsets, or a number which is applied to everything",
+                  "oneOf": [
+                     {
+                        "type": "array",
+                        "items": {
+                           "type": "number"
+                        },
+                        "uniqueItems": false
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "minangle": {
+                  "default": 0,
+                  "description": "The minimum angle displayed by this log",
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/minangle",
+                  "title": "Min Angle",
+                  "type": "number"
+               },
+               "maxangle": {
+                  "default": 6.28318530718,
+                  "description": "The maximum angle displayed by this log",
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/maxangle",
+                  "title": "Max Angle",
+                  "type": "number"
+               },
+               "autoanglelimits": {
+                  "default": false,
+                  "description": "Defines if the angles should be calculated automatically by the data.",
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/autoanglelimits",
+                  "title": "Auto Angle Limits",
+                  "type": "boolean"
+               },
+               "wrapinterpolation": {
+                  "default": false,
+                  "description": "True if values should interpolate from max angle to min angle",
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/wrapinterpolation",
+                  "title": "Wrap Interpolation",
+                  "type": "boolean"
+               },
+               "rowsinterpolation": {
+                  "default": "STEP",
+                  "description": "Type of interpolation for the rows",
+                  "enum": [
+                     "STEP",
+                     "LINEAR"
+                  ],
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/rowsinterpolation",
+                  "title": "Rows Interpolation",
+                  "type": "string"
+               },
+               "microposleft": {
+                  "default": 0,
+                  "description": "The left micro position.",
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/microposleft",
+                  "title": "The Microposition Left Schema",
+                  "type": "number"
+               },
+               "microposright": {
+                  "default": 1,
+                  "description": "The right micro position.",
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/microposright",
+                  "title": "The Microposition Right Schema",
+                  "type": "number"
+               },
+               "plotmode": {
+                  "default": "STEP",
+                  "description": "The plot type defines the interpolation type for columns",
+                  "enum": [
+                     "STEP",
+                     "LINEAR"
+                  ],
+                  "id": "/geotoolkit.welllog.Log2DVisual/properties/plotmode",
+                  "title": "Plot Mode",
+                  "type": "string"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.LogAbstractVisual",
+      "desctiption": "A JSON schema describing abstract log visual",
+      "title": "Abstract Log Visual Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.Node"
+         },
+         {
+            "$ref": "/EmptyWellLogSchema"
+         },
+         {
+            "properties": {
+               "linestyle": {
+                  "id": "/geotoolkit.welllog.LogAbstractVisual/properties/linestyle",
+                  "title": "Line Style",
+                  "description": "The styling of the lines in this visual",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.LogBlock",
+      "description": "Schema describing geotoolkit Log Block",
+      "title": "Log Block Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.welllog.LogAbstractVisual"
+         },
+         {
+            "properties": {
+               "fillstyle": {
+                  "additionalProperties": true,
+                  "id": "/geotoolkit.welllog.LogBlock/properties/fillstyle",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.attributes.FillStyle"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "position": {
+                  "description": "A value of geotoolkit.welllog.LogBlock Position enum",
+                  "maximum": 2,
+                  "minimum": 0,
+                  "id": "/geotoolkit.welllog.LogBlock/properties/position",
+                  "title": "Position",
+                  "type": "integer"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.LogCurve",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.welllog.LogPointSet"
+         },
+         {
+            "properties": {
+               "barlinestyle": {
+                  "description": "Bar Line Description. TODO: fix this description",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/barlinestyle",
+                  "title": "Bar Line Style",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "centeronzeroonnegativemin": {
+                  "default": true,
+                  "description": "TODO: Write a description",
+                  "enum": [
+                     false,
+                     true
+                  ],
+                  "id": "/geotoolkit.welllog.LogCurve/properties/centeronzeroonnegativemin",
+                  "title": "Neat Log Limits",
+                  "type": "boolean"
+               },
+               "displaymode": {
+                  "description": "TODO: Write a description",
+                  "title": "Display Mode",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/displaymode",
+                  "items": [
+                     {
+                        "description": "The display mode identifier",
+                        "title": "Display Mode Item",
+                        "enum": [
+                           "line",
+                           "symbol",
+                           "value",
+                           "bar"
+                        ],
+                        "type": "string"
+                     }
+                  ],
+                  "additionalItems": false,
+                  "type": "array",
+                  "uniqueItems": false
+               },
+               "displayunit": {
+                  "description": "The unit of measure displayed for the curve",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/displayunit",
+                  "title": "Display Unit",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.util.Unit"
+                     }
+                  ]
+               },
+               "gradientlinestyle": {
+                  "description": "The gradient if applied to the curve",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/gradientlinestyle",
+                  "title": "Gradient Line Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.welllog.attributes.LogGradientStyle"
+                     }
+                  ]
+               },
+               "interpolationtype": {
+                  "default": "Linear",
+                  "description": "The type of interpolation applied to the curve",
+                  "enum": [
+                     "Linear",
+                     "MiddleStep",
+                     "EndStep",
+                     "StartStep"
+                  ],
+                  "id": "/geotoolkit.welllog.LogCurve/properties/interpolationtype",
+                  "title": "Interpolationtype",
+                  "type": "string"
+               },
+               "limitstype": {
+                  "default": 0,
+                  "description": "The type of limits used when calculating the limits",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/limitstype",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "title": "Type of Limits",
+                  "type": "integer"
+               },
+               "logscale": {
+                  "default": false,
+                  "description": "Logarithmic scale on or off",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/logscale",
+                  "title": "Logarithmic Scale",
+                  "type": "boolean"
+               },
+               "maxwraps": {
+                  "default": 5,
+                  "description": "Maximum count of wraps",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/maxwraps",
+                  "title": "Maximum Wraps",
+                  "type": "integer"
+               },
+               "microposleft": {
+                  "default": 0,
+                  "description": "allows application code to display the curve in a subarea of the track",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/microposleft",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "title": "Micro Position Left",
+                  "type": "number"
+               },
+               "microposright": {
+                  "default": 1,
+                  "description": "allows application code to display the curve in a subarea of the track",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/microposright",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "title": "Micro Position Right",
+                  "type": "number"
+               },
+               "nullvaluesymbolvisible": {
+                  "default": false,
+                  "description": "Flag to change visibility of null value symbol",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/nullvaluesymbolvisible",
+                  "title": "Null Value Symbol Visible",
+                  "type": "boolean"
+               },
+               "outofrangevalues": {
+                  "default": false,
+                  "description": "Display out of range values flag",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/outofrangevalues",
+                  "title": "The Out of Range Values",
+                  "type": "boolean"
+               },
+               "symboldecimationstep": {
+                  "default": 1,
+                  "description": "The step of decimation of symbols",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/symboldecimationstep",
+                  "title": "Symbol Decimation Step",
+                  "type": "number"
+               },
+               "textdecimationstep": {
+                  "default": 1,
+                  "description": "The step of decimation of displayed text",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/textdecimationstep",
+                  "title": "Text Decimation Step",
+                  "type": "integer"
+               },
+               "textreference": {
+                  "default": "sample",
+                  "description": "Type of the text to be put on the track",
+                  "enum": [
+                     "track",
+                     "sample"
+                  ],
+                  "id": "/geotoolkit.welllog.LogCurve/properties/textreference",
+                  "title": "Text Reference",
+                  "type": "string"
+               },
+               "textstyle": {
+                  "additionalProperties": true,
+                  "id": "/geotoolkit.welllog.LogCurve/properties/textstyle",
+                  "description": "The styling of the text on the curve",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.TextStyle"
+                     }
+                  ]
+               },
+               "wrapping": {
+                  "default": false,
+                  "description": "Flag to enable wrapping based on if you want to see the clipped part of the track or not",
+                  "id": "/geotoolkit.welllog.LogCurve/properties/wrapping",
+                  "title": "Wrapping",
+                  "type": "boolean"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.LogDiscreteCurve",
+      "properties": {
+         "displaymode": {
+            "additionalItems": true,
+            "description": "Display mode (any combination of values: 'line' and 'text', or an empty array)",
+            "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/displaymode",
+            "type": "array",
+            "items": [
+               {
+                  "type": "string",
+                  "enum": [
+                     "line",
+                     "text"
+                  ],
+                  "description": "Strings defining what to display"
+               },
+               {
+                  "type": null
+               }
+            ]
+         },
+         "fillinfo": {
+            "description": "An object containing properties defining the fills of the curve",
+            "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/fillinfo",
+            "title": "Fill Info",
+            "oneOf": [
+               {
+                  "type": "object",
+                  "properties": {
+                     "type": {
+                        "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/fillinfo/properties/type",
+                        "description": "The type of the fill",
+                        "title": "Type",
+                        "minimum": 0,
+                        "maximum": 2,
+                        "type": "integer"
+                     },
+                     "codes": {
+                        "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/fillinfo/properties/codes",
+                        "description": "Code by which the fill style for the section is assigned",
+                        "title": "Codes",
+                        "items": {
+                           "type": "number"
+                        },
+                        "type": "array",
+                        "uniqueItems": false
+                     },
+                     "names": {
+                        "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/fillinfo/properties/names",
+                        "description": "Names of the fills",
+                        "title": "Names",
+                        "items": {
+                           "type": "string"
+                        },
+                        "type": "array"
+                     },
+                     "fillstyles": {
+                        "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/fillinfo/properties/fillstyles",
+                        "description": "The fill styles to apply",
+                        "title": "Fillstyles",
+                        "items": {
+                           "$ref": "/geotoolkit.attributes.FillStyle"
+                        },
+                        "type": "array"
+                     },
+                     "ranges": {
+                        "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/fillinfo/properties/ranges",
+                        "description": "List of ranges to color of fill",
+                        "title": "Ranges",
+                        "items": {
+                           "description": "Each range is defined by an array containing two numbers: start and end",
+                           "type": "array",
+                           "items": {
+                              "type": "number"
+                           }
+                        },
+                        "type": "array"
+                     },
+                     "colorprovider": {
+                        "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/fillinfo/properties/colorprovider",
+                        "description": "A class which is able to provide the color for requested value",
+                        "title": "Color Provider",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "$ref": "/geotoolkit.util.ColorProvider"
+                           }
+                        ]
+                     },
+                     "defaultfillstyle": {
+                        "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/fillinfo/properties/defaultfillstyle",
+                        "description": "The fill style to apply if a fill style for the region is not specified in the arrays",
+                        "title": "Default Fillstyle",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "$ref": "/geotoolkit.attributes.FillStyle"
+                           }
+                        ]
+                     }
+                  }
+               },
+               {
+                  "type": "null"
+               }
+            ]
+         },
+         "filltype": {
+            "default": 1,
+            "description": "An enum that defines the type of fill mechanism which is used to fill the curve.",
+            "maximum": 2,
+            "minimum": 0,
+            "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/filltype",
+            "title": "Fill Type",
+            "type": "integer"
+         },
+         "textstyle": {
+            "additionalProperties": true,
+            "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/textstyle",
+            "description": "The style of the text drawn over the fills",
+            "title": "Test Style",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.TextStyle"
+               }
+            ]
+         },
+         "textposition": {
+            "default": 5,
+            "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/textposition",
+            "description": "The position of the fill label",
+            "title": "Text Position",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.util.AnchorType"
+               }
+            ]
+         },
+         "interpolationtype": {
+            "default": "StartStep",
+            "description": "An enum defining the type of algorithm used to interpolate the fills",
+            "id": "/geotoolkit.welllog.LogDiscreteCurve/properties/interpolationtype",
+            "title": "Interpolation Type",
+            "type": "string"
+         }
+      },
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.LogFill",
+      "title": "Log Fill",
+      "description": "Schema describing the class which handles filling in between logarithmic curves",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.welllog.LogPointSet"
+         },
+         {
+            "properties": {
+               "curve1": {
+                  "description": "A curve or a reference to a curve to fill from",
+                  "id": "/geotoolkit.welllog.LogFill/properties/curve1",
+                  "title": "Curve 1",
+                  "oneOf": [
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.welllog.LogCurve"
+                     }
+                  ]
+               },
+               "curve2": {
+                  "description": "An explanation about the purpose of this instance.",
+                  "id": "/geotoolkit.welllog.LogFill/properties/curve2",
+                  "title": "Curve 2",
+                  "oneOf": [
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.welllog.LogCurve"
+                     }
+                  ]
+               },
+               "fillstyle": {
+                  "id": "/geotoolkit.welllog.LogFill/properties/fillstyle",
+                  "description": "The style of the fill applied in between curves, or a reference to a style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.FillStyle"
+                     }
+                  ]
+               },
+               "filltype": {
+                  "default": "right",
+                  "description": "The type of the fill to apply",
+                  "id": "/geotoolkit.welllog.LogFill/properties/filltype",
+                  "enum": [
+                     "single",
+                     "dual",
+                     "positive",
+                     "negative",
+                     "positiveandnegative",
+                     "left",
+                     "right",
+                     "leftandright"
+                  ],
+                  "title": "Fill type",
+                  "type": "string"
+               },
+               "negativefillstyle": {
+                  "description": "The style style of the negative fill",
+                  "id": "/geotoolkit.welllog.LogFill/properties/negativefillstyle",
+                  "title": "The Negative Fill Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.FillStyle"
+                     }
+                  ]
+               },
+               "positivefillstyle": {
+                  "description": "The style style of the positive fill",
+                  "id": "/geotoolkit.welllog.LogFill/properties/positivefillstyle",
+                  "title": "The Positive Fill Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.FillStyle"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.attributes.LogGradientStyle",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.FillStyle"
+         },
+         {
+            "properties": {
+               "colorprovider": {
+                  "default": null,
+                  "id": "/geotoolkit.welllog.attributes.LogGradientStyle/properties/colorprovider",
+                  "title": "Color Provider",
+                  "description": "The class which provides the color related to a value.",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.ColorProvider"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "renderbackground": {
+                  "default": false,
+                  "id": "/geotoolkit.welllog.attributes.LogGradientStyle/properties/renderbackground",
+                  "title": "Render Background",
+                  "description": "Defines if the background must be rendered before the gradient fill is rendered",
+                  "type": "boolean"
+               },
+               "transparency": {
+                  "id": "/geotoolkit.welllog.attributes.LogGradientStyle/properties/transparency",
+                  "title": "Transparency",
+                  "description": "The opacity index of the gradient fill",
+                  "minimum": 0,
+                  "maximum": 255,
+                  "type": "number"
+               },
+               "datasource": {
+                  "default": null,
+                  "id": "/geotoolkit.welllog.attributes.LogGradientStyle/properties/datasource",
+                  "title": "Data Source",
+                  "description": "The class providing data for the log curve",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.welllog.data.LogData"
+                     }
+                  ]
+               },
+               "colorrange": {
+                  "default": null,
+                  "id": "/geotoolkit.welllog.attributes.LogGradientStyle/properties/colorrange",
+                  "title": "Color Range",
+                  "description": "The range of colors described by the gradient.",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.util.Range"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.welllog.LogHorizontalGrid",
+      "properties": {
+         "majorlinestyle": {
+            "description": "The line style of the major ticks of the grid, or a reference to another line style",
+            "id": "/geotoolkit.welllog.LogHorizontalGrid/properties/majorlinestyle",
+            "title": "Major Line Style",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.LineStyle"
+               },
+               {
+                  "type": "string"
+               }
+            ]
+         },
+         "minorlinestyle": {
+            "description": "The line style of the minor ticks of the grid, or a reference to another line style",
+            "id": "/geotoolkit.welllog.LogHorizontalGrid/properties/minorlinestyle",
+            "title": "Minor Line Style",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.attributes.LineStyle"
+               },
+               {
+                  "type": "string"
+               }
+            ]
+         },
+         "tickgenerator": {
+            "id": "/geotoolkit.welllog.LogHorizontalGrid/properties/tickgenerator",
+            "title": "Tick Generator",
+            "description": "Used to calculate major and minor lines positions",
+            "anyOf": [
+               {
+                  "$ref": "/geotoolkit.axis.AdaptiveTickGenerator"
+               },
+               {
+                  "$ref": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator"
+               },
+               {
+                  "$ref": "/geotoolkit.axis.AdaptiveLogTickGenerator"
+               },
+               {
+                  "$ref": "/geotoolkit.axis.DateTimeTickGenerator"
+               },
+               {
+                  "$ref": "/geotoolkit.axis.DiscreteValueTickGenerator"
+               },
+               {
+                  "$ref": "/geotoolkit.axis.NumericLinearTickGenerator"
+               },
+               {
+                  "$ref": "/geotoolkit.axis.NumericTickGenerator"
+               },
+               {
+                  "$ref": "/geotoolkit.axis.SecondaryTickGenerator"
+               }
+            ]
+         }
+      },
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.LinearValueGrid",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.welllog.LogAbstractVisual"
+         },
+         {
+            "properties": {
+               "linescount": {
+                  "description": "Number of lines in the grid",
+                  "id": "/geotoolkit.welllog.widgets.LinearValueGrid/properties/linescount",
+                  "title": "Number of Lines",
+                  "type": "integer"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.LogLog10ValueGrid",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.welllog.LogAbstractVisual"
+         },
+         {
+            "properties": {
+               "decadecount": {
+                  "id": "/geotoolkit.welllog.LogLog10ValueGrid/properties/decadecount",
+                  "title": "Decade Count",
+                  "description": "Number of decades displayed",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "scale": {
+                  "default": 1,
+                  "description": "The scale factor of the grid",
+                  "id": "/geotoolkit.welllog.LogLog10ValueGrid/properties/scale",
+                  "title": "Scale",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "offset": {
+                  "default": 0,
+                  "description": "The offset of the grid from the base line",
+                  "id": "/geotoolkit.welllog.LogLog10ValueGrid/properties/offset",
+                  "title": "Offset",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "step": {
+                  "description": "An explanation about the purpose of this instance.",
+                  "id": "/geotoolkit.welllog.LogLog10ValueGrid/properties/step",
+                  "title": "The Step Schema",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "logstart": {
+                  "description": "An optional start grid value.",
+                  "id": "/geotoolkit.welllog.LogLog10ValueGrid/properties/logstart",
+                  "title": "The Log Start Schema",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "logstop": {
+                  "description": "An optional stop grid value.",
+                  "id": "/geotoolkit.welllog.LogLog10ValueGrid/properties/logstop",
+                  "title": "The Log Stop Schema",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "bounds": {
+                  "description": "Bounds of the visual in parent coordinates",
+                  "id": "/geotoolkit.welllog.LogLog10ValueGrid/properties/bounds",
+                  "title": "The Bounds Schema",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.util.Rect"
+                     }
+                  ]
+               },
+               "intermediate": {
+                  "default": true,
+                  "description": "Flag defining the visibility of minor lines in the grid",
+                  "id": "/geotoolkit.welllog.LogLog10ValueGrid/properties/intermediate",
+                  "title": "Intermediate Lines",
+                  "type": "boolean"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.LogPointSet",
+      "desctiption": "A JSON schema describing abstract log visual",
+      "title": "Abstract Log Visual Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.welllog.LogAbstractVisual"
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.welllog.LogReferenceLine",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.welllog.LogPointSet"
+         },
+         {
+            "properties": {
+               "level": {
+                  "description": "The level of wrap interpolation",
+                  "id": "/geotoolkit.welllog.LogReferenceLine/properties/level",
+                  "title": "Level",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "value": {
+                  "default": 0,
+                  "description": "Value in track coordinates",
+                  "id": "/geotoolkit.welllog.LogReferenceLine/properties/value",
+                  "title": "Line Value",
+                  "type": "number"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "The schema describing the welllog track",
+      "id": "/geotoolkit.welllog.LogTrack",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.CompositeNode"
+         },
+         {
+            "properties": {
+               "cg_id": {
+                  "description": "Incremental ID used for serialization only",
+                  "id": "/geotoolkit.welllog.LogTrack/properties/cg_id",
+                  "title": "CG ID",
+                  "type": "integer"
+               },
+               "name": {
+                  "description": "Name of the track.",
+                  "id": "/geotoolkit.welllog.LogTrack/properties/name",
+                  "title": "Name",
+                  "type": "string"
+               },
+               "type": {
+                  "default": "index",
+                  "description": "The type of track.",
+                  "enum": [
+                     null,
+                     "index"
+                  ],
+                  "id": "/geotoolkit.welllog.LogTrack/properties/type",
+                  "title": "The Type Schema",
+                  "type": "string"
+               },
+               "visuals": {
+                  "additionalItems": true,
+                  "id": "/geotoolkit.welllog.LogTrack/properties/visuals",
+                  "items": {},
+                  "type": "array",
+                  "uniqueItems": false
+               },
+               "width": {
+                  "default": 50,
+                  "description": "An explanation about the purpose of this instance.",
+                  "enum": [
+                     null,
+                     50
+                  ],
+                  "exclusiveMaximum": false,
+                  "exclusiveMinimum": false,
+                  "id": "/geotoolkit.welllog.LogTrack/properties/width",
+                  "title": "The Width Schema",
+                  "type": "integer"
+               },
+               "axis": {
+                  "additionalProperties": true,
+                  "id": "/geotoolkit.welllog.LogTrack/properties/axis",
+                  "properties": {
+                     "auto_label_rotation": {
+                        "default": true,
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           true
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/auto_label_rotation",
+                        "title": "The Auto_label_rotation Schema",
+                        "type": "boolean"
+                     },
+                     "cg_type": {
+                        "default": "axis",
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           "axis"
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/cg_type",
+                        "title": "The Cg_type Schema",
+                        "type": "string"
+                     },
+                     "id": {
+                        "default": "AXIS",
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           "AXIS"
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/id",
+                        "title": "The Id Schema",
+                        "type": "string"
+                     },
+                     "major_labels": {
+                        "additionalProperties": true,
+                        "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_labels",
+                        "properties": {
+                           "alignment": {
+                              "default": "center",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "center"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_labels/properties/alignment",
+                              "title": "The Alignment Schema",
+                              "type": "string"
+                           },
+                           "baseline": {
+                              "default": "middle",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "middle"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_labels/properties/baseline",
+                              "title": "The Baseline Schema",
+                              "type": "string"
+                           },
+                           "cg_id": {
+                              "default": 12,
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 12
+                              ],
+                              "exclusiveMaximum": false,
+                              "exclusiveMinimum": false,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_labels/properties/cg_id",
+                              "title": "The Cg_id Schema",
+                              "type": "integer"
+                           },
+                           "cg_type": {
+                              "default": "textstyle",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "textstyle"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_labels/properties/cg_type",
+                              "title": "The Cg_type Schema",
+                              "type": "string"
+                           },
+                           "color": {
+                              "default": "#9e9e9e",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "#9e9e9e"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_labels/properties/color",
+                              "title": "The Color Schema",
+                              "type": "string"
+                           },
+                           "font": {
+                              "default": "12px Roboto",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "12px Roboto"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_labels/properties/font",
+                              "title": "The Font Schema",
+                              "type": "string"
+                           }
+                        },
+                        "type": "object"
+                     },
+                     "major_ticks": {
+                        "additionalProperties": true,
+                        "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks",
+                        "properties": {
+                           "cg_id": {
+                              "default": 8,
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 8
+                              ],
+                              "exclusiveMaximum": false,
+                              "exclusiveMinimum": false,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/cg_id",
+                              "title": "The Cg_id Schema",
+                              "type": "integer"
+                           },
+                           "cg_type": {
+                              "default": "linestyle",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "linestyle"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/cg_type",
+                              "title": "The Cg_type Schema",
+                              "type": "string"
+                           },
+                           "color": {
+                              "default": "#9e9e9e",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "#9e9e9e"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/color",
+                              "title": "The Color Schema",
+                              "type": "string"
+                           },
+                           "linecap": {
+                              "default": "butt",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "butt"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/linecap",
+                              "title": "The Linecap Schema",
+                              "type": "string"
+                           },
+                           "linejoin": {
+                              "default": "round",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "round"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/linejoin",
+                              "title": "The Linejoin Schema",
+                              "type": "string"
+                           },
+                           "pattern": {
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 null
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/pattern",
+                              "title": "The Pattern Schema",
+                              "type": "null"
+                           },
+                           "pixelsnapmode": {
+                              "additionalProperties": true,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/pixelsnapmode",
+                              "properties": {
+                                 "cg_id": {
+                                    "default": 9,
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "enum": [
+                                       null,
+                                       9
+                                    ],
+                                    "exclusiveMaximum": false,
+                                    "exclusiveMinimum": false,
+                                    "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/pixelsnapmode/properties/cg_id",
+                                    "title": "The Cg_id Schema",
+                                    "type": "integer"
+                                 },
+                                 "x": {
+                                    "default": false,
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "enum": [
+                                       null,
+                                       false
+                                    ],
+                                    "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/pixelsnapmode/properties/x",
+                                    "title": "The X Schema",
+                                    "type": "boolean"
+                                 },
+                                 "y": {
+                                    "default": true,
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "enum": [
+                                       null,
+                                       true
+                                    ],
+                                    "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/pixelsnapmode/properties/y",
+                                    "title": "The Y Schema",
+                                    "type": "boolean"
+                                 }
+                              },
+                              "type": "object"
+                           },
+                           "width": {
+                              "default": 1,
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 1
+                              ],
+                              "exclusiveMaximum": false,
+                              "exclusiveMinimum": false,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/major_ticks/properties/width",
+                              "title": "The Width Schema",
+                              "type": "integer"
+                           }
+                        },
+                        "type": "object"
+                     },
+                     "minor_ticks": {
+                        "additionalProperties": true,
+                        "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks",
+                        "properties": {
+                           "cg_id": {
+                              "default": 10,
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 10
+                              ],
+                              "exclusiveMaximum": false,
+                              "exclusiveMinimum": false,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/cg_id",
+                              "title": "The Cg_id Schema",
+                              "type": "integer"
+                           },
+                           "cg_type": {
+                              "default": "linestyle",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "linestyle"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/cg_type",
+                              "title": "The Cg_type Schema",
+                              "type": "string"
+                           },
+                           "color": {
+                              "default": "#e0e0e0",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "#e0e0e0"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/color",
+                              "title": "The Color Schema",
+                              "type": "string"
+                           },
+                           "linecap": {
+                              "default": "butt",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "butt"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/linecap",
+                              "title": "The Linecap Schema",
+                              "type": "string"
+                           },
+                           "linejoin": {
+                              "default": "round",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "round"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/linejoin",
+                              "title": "The Linejoin Schema",
+                              "type": "string"
+                           },
+                           "pattern": {
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 null
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/pattern",
+                              "title": "The Pattern Schema",
+                              "type": "null"
+                           },
+                           "pixelsnapmode": {
+                              "additionalProperties": true,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/pixelsnapmode",
+                              "properties": {
+                                 "cg_id": {
+                                    "default": 11,
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "enum": [
+                                       null,
+                                       11
+                                    ],
+                                    "exclusiveMaximum": false,
+                                    "exclusiveMinimum": false,
+                                    "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/pixelsnapmode/properties/cg_id",
+                                    "title": "The Cg_id Schema",
+                                    "type": "integer"
+                                 },
+                                 "x": {
+                                    "default": true,
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "enum": [
+                                       null,
+                                       true
+                                    ],
+                                    "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/pixelsnapmode/properties/x",
+                                    "title": "The X Schema",
+                                    "type": "boolean"
+                                 },
+                                 "y": {
+                                    "default": true,
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "enum": [
+                                       null,
+                                       true
+                                    ],
+                                    "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/pixelsnapmode/properties/y",
+                                    "title": "The Y Schema",
+                                    "type": "boolean"
+                                 }
+                              },
+                              "type": "object"
+                           },
+                           "width": {
+                              "default": 1,
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 1
+                              ],
+                              "exclusiveMaximum": false,
+                              "exclusiveMinimum": false,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/minor_ticks/properties/width",
+                              "title": "The Width Schema",
+                              "type": "integer"
+                           }
+                        },
+                        "type": "object"
+                     },
+                     "name": {
+                        "default": "",
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           ""
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/name",
+                        "title": "The Name Schema",
+                        "type": "string"
+                     },
+                     "visible": {
+                        "default": "true",
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           "true"
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/axis/properties/visible",
+                        "title": "The Visible Schema",
+                        "type": "string"
+                     }
+                  },
+                  "type": "object"
+               },
+               "block": {
+                  "additionalProperties": true,
+                  "id": "/geotoolkit.welllog.LogTrack/properties/block",
+                  "properties": {
+                     "cg_id": {
+                        "default": 3,
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           3
+                        ],
+                        "exclusiveMaximum": false,
+                        "exclusiveMinimum": false,
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/cg_id",
+                        "title": "The Cg_id Schema",
+                        "type": "integer"
+                     },
+                     "cg_type": {
+                        "default": "geotoolkit.welllog.LogBlock",
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           "geotoolkit.welllog.LogBlock"
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/cg_type",
+                        "title": "The Cg_type Schema",
+                        "type": "string"
+                     },
+                     "fillstyle": {
+                        "additionalProperties": true,
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/fillstyle",
+                        "properties": {
+                           "cg_id": {
+                              "default": 6,
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 6
+                              ],
+                              "exclusiveMaximum": false,
+                              "exclusiveMinimum": false,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/fillstyle/properties/cg_id",
+                              "title": "The Cg_id Schema",
+                              "type": "integer"
+                           },
+                           "cg_type": {
+                              "default": "fillstyle",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "fillstyle"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/fillstyle/properties/cg_type",
+                              "title": "The Cg_type Schema",
+                              "type": "string"
+                           },
+                           "color": {
+                              "default": "rgba(204, 0, 102, 0.8)",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "rgba(204, 0, 102, 0.8)"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/fillstyle/properties/color",
+                              "title": "The Color Schema",
+                              "type": "string"
+                           },
+                           "fillpattern": {
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 null
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/fillstyle/properties/fillpattern",
+                              "title": "The Fillpattern Schema",
+                              "type": "null"
+                           },
+                           "pattern": {
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 null
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/fillstyle/properties/pattern",
+                              "title": "The Pattern Schema",
+                              "type": "null"
+                           }
+                        },
+                        "type": "object"
+                     },
+                     "id": {
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           null
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/id",
+                        "title": "The Id Schema",
+                        "type": "null"
+                     },
+                     "linestyle": {
+                        "additionalProperties": true,
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle",
+                        "properties": {
+                           "cg_id": {
+                              "default": 4,
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 4
+                              ],
+                              "exclusiveMaximum": false,
+                              "exclusiveMinimum": false,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/cg_id",
+                              "title": "The Cg_id Schema",
+                              "type": "integer"
+                           },
+                           "cg_type": {
+                              "default": "linestyle",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "linestyle"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/cg_type",
+                              "title": "The Cg_type Schema",
+                              "type": "string"
+                           },
+                           "color": {
+                              "default": "#9e9e9e",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "#9e9e9e"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/color",
+                              "title": "The Color Schema",
+                              "type": "string"
+                           },
+                           "linecap": {
+                              "default": "butt",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "butt"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/linecap",
+                              "title": "The Linecap Schema",
+                              "type": "string"
+                           },
+                           "linejoin": {
+                              "default": "round",
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 "round"
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/linejoin",
+                              "title": "The Linejoin Schema",
+                              "type": "string"
+                           },
+                           "pattern": {
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 null
+                              ],
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/pattern",
+                              "title": "The Pattern Schema",
+                              "type": "null"
+                           },
+                           "pixelsnapmode": {
+                              "additionalProperties": true,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/pixelsnapmode",
+                              "properties": {
+                                 "cg_id": {
+                                    "default": 5,
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "enum": [
+                                       null,
+                                       5
+                                    ],
+                                    "exclusiveMaximum": false,
+                                    "exclusiveMinimum": false,
+                                    "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/pixelsnapmode/properties/cg_id",
+                                    "title": "The Cg_id Schema",
+                                    "type": "integer"
+                                 },
+                                 "x": {
+                                    "default": true,
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "enum": [
+                                       null,
+                                       true
+                                    ],
+                                    "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/pixelsnapmode/properties/x",
+                                    "title": "The X Schema",
+                                    "type": "boolean"
+                                 },
+                                 "y": {
+                                    "default": true,
+                                    "description": "An explanation about the purpose of this instance.",
+                                    "enum": [
+                                       null,
+                                       true
+                                    ],
+                                    "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/pixelsnapmode/properties/y",
+                                    "title": "The Y Schema",
+                                    "type": "boolean"
+                                 }
+                              },
+                              "type": "object"
+                           },
+                           "width": {
+                              "default": 1,
+                              "description": "An explanation about the purpose of this instance.",
+                              "enum": [
+                                 null,
+                                 1
+                              ],
+                              "exclusiveMaximum": false,
+                              "exclusiveMinimum": false,
+                              "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/linestyle/properties/width",
+                              "title": "The Width Schema",
+                              "type": "integer"
+                           }
+                        },
+                        "type": "object"
+                     },
+                     "name": {
+                        "default": "",
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           ""
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/name",
+                        "title": "The Name Schema",
+                        "type": "string"
+                     },
+                     "position": {
+                        "default": 1,
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           1
+                        ],
+                        "exclusiveMaximum": false,
+                        "exclusiveMinimum": false,
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/position",
+                        "title": "The Position Schema",
+                        "type": "integer"
+                     },
+                     "selectable": {
+                        "default": false,
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           false
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/selectable",
+                        "title": "The Selectable Schema",
+                        "type": "boolean"
+                     },
+                     "tag": {
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           null
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/tag",
+                        "title": "The Tag Schema",
+                        "type": "null"
+                     },
+                     "visible": {
+                        "default": false,
+                        "description": "An explanation about the purpose of this instance.",
+                        "enum": [
+                           null,
+                           false
+                        ],
+                        "id": "/geotoolkit.welllog.LogTrack/properties/block/properties/visible",
+                        "title": "The Visible Schema",
+                        "type": "boolean"
+                     }
+                  },
+                  "type": "object"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "description": "The base schema for all welllog classes",
+      "id": "/EmptyWellLogSchema",
+      "type": "object",
+      "properties": {
+         "cg_id": {
+            "description": "The id used strictly for deserialization",
+            "id": "/geotoolkit.welllog.LogCurve/properties/cg_id",
+            "title": "CG Id",
+            "type": "integer"
+         },
+         "cg_type": {
+            "description": "The type of the instance",
+            "id": "/geotoolkit.welllog.LogCurve/properties/cg_type",
+            "title": "CG Type",
+            "type": "string"
+         }
+      }
+   }
+]

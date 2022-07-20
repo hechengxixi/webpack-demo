@@ -1,0 +1,75 @@
+[
+   {
+      "additionalProperties": true,
+      "description": "This schema describes LineChart Visual.",
+      "id": "/geotoolkit.controls.shapes.LineChart",
+      "title": "Carnac LineChart Visual",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.Group"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.controls.shapes.LineChart",
+                        "id": "/geotoolkit.controls.shapes.LineChart/properties/ClassName"
+                     }
+                  ]
+               },
+               "spline": {
+                  "default": false,
+                  "type": "boolean",
+                  "id": "/geotoolkit.controls.shapes.LineChart/properties/spline",
+                  "required": false,
+                  "description": "Spline or polyline",
+                  "title": "Spline mode"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "This schema describes Legend",
+      "id": "/geotoolkit.controls.shapes.Legend",
+      "title": "Legend Visual",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.shapes.AnchoredShape"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.controls.shapes.Legend",
+                        "id": "/geotoolkit.controls.shapes.Legend/properties/ClassName"
+                     }
+                  ]
+               },
+               "padding": {
+                  "id": "/geotoolkit.controls.shapes.Legend/properties/padding",
+                  "description": "Padding",
+                  "title": "Padding",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.attributes.SpaceStyle"
+                     }
+                  ],
+                  "required": false
+               }
+            }
+         }
+      ]
+   }
+]

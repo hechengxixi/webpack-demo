@@ -1,0 +1,220 @@
+{
+    "options": {
+        "assumptions": {},
+        "sourceType": "unambiguous",
+        "compact": false,
+        "filename": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\src\\index.tsx",
+        "sourceMaps": true,
+        "sourceFileName": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\src\\index.tsx",
+        "caller": {
+            "name": "babel-loader",
+            "target": "web",
+            "supportsStaticESM": true,
+            "supportsDynamicImport": true,
+            "supportsTopLevelAwait": true
+        },
+        "targets": {
+            "chrome": "103.0.0",
+            "firefox": "102.0.0",
+            "safari": "15.5.0"
+        },
+        "cloneInputAst": true,
+        "babelrc": false,
+        "configFile": false,
+        "browserslistConfigFile": false,
+        "passPerPreset": false,
+        "envName": "development",
+        "cwd": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+        "root": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+        "rootMode": "root",
+        "plugins": [
+            {
+                "dirname": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+                "file": {
+                    "request": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\react-refresh\\babel.js",
+                    "resolved": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\react-refresh\\babel.js"
+                }
+            }
+        ],
+        "presets": [
+            {
+                "options": {
+                    "runtime": "automatic"
+                },
+                "dirname": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+                "file": {
+                    "request": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\babel-preset-react-app\\index.js",
+                    "resolved": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\babel-preset-react-app\\index.js"
+                }
+            }
+        ]
+    },
+    "babelrc": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\package.json",
+    "fileHandling": "transpile",
+    "files": {}
+}
+{
+    "options": {
+        "assumptions": {},
+        "sourceType": "unambiguous",
+        "compact": false,
+        "filename": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\src\\reportWebVitals.ts",
+        "sourceMaps": true,
+        "sourceFileName": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\src\\reportWebVitals.ts",
+        "caller": {
+            "name": "babel-loader",
+            "target": "web",
+            "supportsStaticESM": true,
+            "supportsDynamicImport": true,
+            "supportsTopLevelAwait": true
+        },
+        "targets": {
+            "chrome": "103.0.0",
+            "firefox": "102.0.0",
+            "safari": "15.5.0"
+        },
+        "cloneInputAst": true,
+        "babelrc": false,
+        "configFile": false,
+        "browserslistConfigFile": false,
+        "passPerPreset": false,
+        "envName": "development",
+        "cwd": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+        "root": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+        "rootMode": "root",
+        "plugins": [
+            {
+                "dirname": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+                "file": {
+                    "request": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\react-refresh\\babel.js",
+                    "resolved": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\react-refresh\\babel.js"
+                }
+            }
+        ],
+        "presets": [
+            {
+                "options": {
+                    "runtime": "automatic"
+                },
+                "dirname": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+                "file": {
+                    "request": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\babel-preset-react-app\\index.js",
+                    "resolved": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\babel-preset-react-app\\index.js"
+                }
+            }
+        ]
+    },
+    "babelrc": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\package.json",
+    "fileHandling": "transpile",
+    "files": {}
+}
+{
+    "options": {
+        "assumptions": {},
+        "sourceType": "unambiguous",
+        "compact": false,
+        "filename": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\src\\App.tsx",
+        "sourceMaps": true,
+        "sourceFileName": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\src\\App.tsx",
+        "caller": {
+            "name": "babel-loader",
+            "target": "web",
+            "supportsStaticESM": true,
+            "supportsDynamicImport": true,
+            "supportsTopLevelAwait": true
+        },
+        "targets": {
+            "chrome": "103.0.0",
+            "firefox": "102.0.0",
+            "safari": "15.5.0"
+        },
+        "cloneInputAst": true,
+        "babelrc": false,
+        "configFile": false,
+        "browserslistConfigFile": false,
+        "passPerPreset": false,
+        "envName": "development",
+        "cwd": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+        "root": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+        "rootMode": "root",
+        "plugins": [
+            {
+                "dirname": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+                "file": {
+                    "request": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\react-refresh\\babel.js",
+                    "resolved": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\react-refresh\\babel.js"
+                }
+            }
+        ],
+        "presets": [
+            {
+                "options": {
+                    "runtime": "automatic"
+                },
+                "dirname": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+                "file": {
+                    "request": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\babel-preset-react-app\\index.js",
+                    "resolved": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\babel-preset-react-app\\index.js"
+                }
+            }
+        ]
+    },
+    "babelrc": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\package.json",
+    "fileHandling": "transpile",
+    "files": {}
+}
+{
+    "options": {
+        "assumptions": {},
+        "sourceType": "unambiguous",
+        "compact": false,
+        "filename": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\src\\pages\\cjqx\\index.tsx",
+        "sourceMaps": true,
+        "sourceFileName": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\src\\pages\\cjqx\\index.tsx",
+        "caller": {
+            "name": "babel-loader",
+            "target": "web",
+            "supportsStaticESM": true,
+            "supportsDynamicImport": true,
+            "supportsTopLevelAwait": true
+        },
+        "targets": {
+            "chrome": "103.0.0",
+            "firefox": "102.0.0",
+            "safari": "15.5.0"
+        },
+        "cloneInputAst": true,
+        "babelrc": false,
+        "configFile": false,
+        "browserslistConfigFile": false,
+        "passPerPreset": false,
+        "envName": "development",
+        "cwd": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+        "root": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+        "rootMode": "root",
+        "plugins": [
+            {
+                "dirname": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+                "file": {
+                    "request": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\react-refresh\\babel.js",
+                    "resolved": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\react-refresh\\babel.js"
+                }
+            }
+        ],
+        "presets": [
+            {
+                "options": {
+                    "runtime": "automatic"
+                },
+                "dirname": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo",
+                "file": {
+                    "request": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\babel-preset-react-app\\index.js",
+                    "resolved": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\node_modules\\babel-preset-react-app\\index.js"
+                }
+            }
+        ]
+    },
+    "babelrc": "E:\\webpackWorkspace\\webpack-demo\\webpack-dll-demo\\package.json",
+    "fileHandling": "transpile",
+    "files": {}
+}

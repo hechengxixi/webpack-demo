@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- Copyright 2006 (c) Interactive Network Technologies, Inc. -->
+<svg x="-50%" y ="0%" width="100%" height="100%" viewBox="-100 0 200 300" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="none">
+   <desc>Perforation</desc>
+   <polygon fill="red" stroke="black" stroke-width="1" points="-100,250,  0,300,  100,250, 0,200, -100,250"/>
+   <polygon fill="red" stroke="black" stroke-width="1" points="-100,150,  0,200,  100,150, 0,100, -100,150"/>
+   <polygon fill="red" stroke="black" stroke-width="1" points="-100,50,   0,100   100,50   0,0    -100,50"/>    
+</svg>

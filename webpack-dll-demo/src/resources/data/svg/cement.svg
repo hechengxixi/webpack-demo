@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- Copyright (c) 2005 by Interactive Network Technologies, Inc. -->
+<svg  x="0" y ="0%" width="100" height="100" viewBox="0 0 200 100" preserveAspectRatio="none" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+
+    <defs>
+	<pattern id="myPattern" width='5' height='5' patternUnits="userSpaceOnUse">
+		<image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAAnSURBVBhXY/gPBQwMDGAMZqMLgACQjSoAAmBBZABWBGWDAUQXw38APu9Fuxmy5koAAAAASUVORK5CYII="
+		 x="0" y="0" width="5" height="5" />
+	</pattern>
+    </defs>
+
+  <rect x="0" y="0" width="200" height="100"
+        fill="url(#myPattern)" stroke="gray"  />
+
+</svg>
+

@@ -1,0 +1,83 @@
+[
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.widgets.BaseWidget",
+      "description": "Schema describing Carnac Base Widget",
+      "title": "Group Node Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.Group"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.widgets.BaseWidget",
+                        "id": "/geotoolkit.widgets.BaseWidget/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.widgets.AnnotatedWidget",
+      "description": "Schema describing Carnac Annotated Widget",
+      "title": "Group Node Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.widgets.BaseWidget"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.widgets.AnnotatedWidget",
+                        "id": "/geotoolkit.widgets.AnnotatedWidget/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.widgets.CrossPlot",
+      "description": "Schema describing Carnac CrossPlot Widget",
+      "title": "Group Node Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.widgets.AnnotatedWidget"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.widgets.CrossPlot",
+                        "id": "/geotoolkit.widgets.CrossPlot/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   }
+]

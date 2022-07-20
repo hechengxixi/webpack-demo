@@ -1,0 +1,3481 @@
+[
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "description": "This document contains a schema describing geotoolkit.attributes.Style",
+      "id": "/geotoolkit.attributes.Style",
+      "title": "Geotoolkit Style Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.util.EventDispatcher"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.attributes.Style",
+                        "id": "/geotoolkit.attributes.Style/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.attributes.ClipStyle",
+      "type": "object",
+      "description": "Schema describing the geotoolkit Clip Style class",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.Style"
+         },
+         {
+            "properties": {
+               "geometry": {
+                  "description": "The geometry of the clipping area",
+                  "id": "/geotoolkit.attributes.ClipStyle/properties/geometry",
+                  "title": "Geometry",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.renderer.GraphicsPath"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "defaullt": "geotoolkit.attributes.ClipStyle",
+                        "id": "/geotoolkit.attributes.ClipStyle/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.attributes.ColoredStyle",
+      "type": "object",
+      "description": "Schema describing the geotoolkit Colored Style class",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.Style"
+         },
+         {
+            "properties": {
+               "color": {
+                  "id": "/geotoolkit.attributes.ColoredStyle/properties/color",
+                  "title": "Color",
+                  "description": "The color defined for this style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "defaullt": "geotoolkit.attributes.ColoredStyle",
+                        "id": "/geotoolkit.attributes.ColoredStyle/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.attributes.FillStyle",
+      "type": "object",
+      "description": "Schema describing the geotoolkit Fill Style class",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.ColoredStyle"
+         },
+         {
+            "properties": {
+               "pattern": {
+                  "id": "/geotoolkit.attributes.FillStyle/properties/pattern",
+                  "title": "Pattern",
+                  "description": "The pattern that defines the fill. Or a reference to another pattern.",
+                  "anyOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.ImagePattern"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.GeometryPattern"
+                     }
+                  ]
+               },
+               "fillpattern": {
+                  "id": "/geotoolkit.attributes.FillStyle/properties/fillpattern",
+                  "title": "Pattern",
+                  "description": "Same as pattern, deprecated.",
+                  "anyOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.ImagePattern"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.GeometryPattern"
+                     }
+                  ]
+               },
+               "foreground": {
+                  "id": "/geotoolkit.attributes.FillStyle/properties/foreground",
+                  "title": "Foreground Color",
+                  "description": "The color to fill over the pattern.",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "evenoddmode": {
+                  "default": false,
+                  "id": "/geotoolkit.attributes.FillStyle/properties/evenoddmode",
+                  "title": "EvenOdd Mode",
+                  "description": "Defines if pattern has to be applied in evenodd mode or nonzero",
+                  "type": "boolean"
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.attributes.FillStyle",
+                        "id": "/geotoolkit.attributes.FillStyle/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "description": "This document contains a schema describing geotoolkit.attributes.GeometryPattern class instance",
+      "id": "/geotoolkit.attributes.GeometryPattern",
+      "title": "Geotoolkit GeometryPattern Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.Pattern"
+         },
+         {
+            "properties": {
+               "scalable": {
+                  "default": false,
+                  "description": "True to scale the pattern together with the shape, false to keep constant pattern size and multiply instead.",
+                  "id": "/geotoolkit.attributes.GeometryPattern/properties/scalable",
+                  "title": "Name",
+                  "type": "boolean"
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.attributes.GeometryPattern",
+                        "id": "/geotoolkit.attributes.GeometryPattern/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "type": "object",
+      "id": "/geotoolkit.attributes.GradientStyle",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.FillStyle"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.attributes.GradientStyle",
+                        "id": "/geotoolkit.attributes.GradientStyle/properties/ClassName"
+                     }
+                  ]
+               },
+               "absolutecoordinates": {
+                  "default": false,
+                  "description": "Defines if the start and end points of the gradiens should be calculated relative to the bounds of the object it fills or the whole scene.",
+                  "id": "/geotoolkit.attributes.GradientStyle/properties/absolutecoordinates",
+                  "title": "Absolute Coordinates",
+                  "type": "boolean"
+               },
+               "spreadmethod": {
+                  "default": "pad",
+                  "description": "Defines how the gradient behaves when vector defined by start and end does not cover the entire object.",
+                  "enum": [
+                     "reflect",
+                     "repeat",
+                     "pad"
+                  ],
+                  "id": "/geotoolkit.attributes.GradientStyle/properties/spreadmethod",
+                  "title": "Spread Method",
+                  "type": "string"
+               },
+               "stoppoints": {
+                  "additionalItems": true,
+                  "id": "/geotoolkit.attributes.GradientStyle/properties/stoppoints",
+                  "description": "An array of color stop points containing positions and colors",
+                  "title": "Stop Points",
+                  "items": {
+                     "type": "object",
+                     "description": "An object containing properties of the color stop",
+                     "properties": {
+                        "position": {
+                           "label": "Stop Position",
+                           "description": "The position of the color stop in the model limits of the shape that the gradient is filling, which is always [0,1]",
+                           "type": "number"
+                        },
+                        "color": {
+                           "label": "Stop Color",
+                           "description": "The color of the color stop.",
+                           "oneOf": [
+                              {
+                                 "type": "string"
+                              },
+                              {
+                                 "$ref": "/geotoolkit.util.RgbaColor"
+                              }
+                           ]
+                        }
+                     }
+                  },
+                  "type": "array",
+                  "uniqueItems": false
+               },
+               "transformation": {
+                  "additionalProperties": true,
+                  "id": "/geotoolkit.attributes.GradientStyle/properties/transformation",
+                  "description": "The transformation of the gradient vector",
+                  "title": "Transformation",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.Transformation"
+                     }
+                  ]
+               },
+               "unittype": {
+                  "default": "objectBoundingBox",
+                  "description": "Defines how the points defining the vector are being calculated. UserSpaceOnUse is equivalent to absolute coordinates.",
+                  "enum": [
+                     "userSpaceOnUse",
+                     "objectBoundingBox"
+                  ],
+                  "id": "/geotoolkit.attributes.GradientStyle/properties/unittype",
+                  "title": "Unit Type",
+                  "type": "string"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "This document contains a schema describing geotoolkit.attributes.ImagePattern class instance",
+      "id": "/geotoolkit.attributes.ImagePattern",
+      "title": "Geotoolkit ImagePattern Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.Pattern"
+         },
+         {
+            "properties": {
+               "rawsize": {
+                  "default": false,
+                  "description": "True to preserve the original size of the image",
+                  "id": "/geotoolkit.attributes.ImagePattern/properties/rawsize",
+                  "title": "Raw Size",
+                  "type": "boolean"
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.attributes.ImagePattern",
+                        "id": "/geotoolkit.attributes.ImagePattern/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.attributes.LineStyle",
+      "type": "object",
+      "description": "Schema describing the geotoolkit Line Style class",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.ColoredStyle"
+         },
+         {
+            "properties": {
+               "width": {
+                  "default": 1,
+                  "id": "/geotoolkit.attributes.LineStyle/properties/width",
+                  "title": "Width",
+                  "description": "The width of the line.",
+                  "type": "number"
+               },
+               "pattern": {
+                  "id": "/geotoolkit.attributes.LineStyle/properties/pattern",
+                  "title": "Pattern",
+                  "description": "The pattern of the line",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "array",
+                        "items": {
+                           "type": "number"
+                        },
+                        "additionalItems": false
+                     }
+                  ]
+               },
+               "pixelsnapmode": {
+                  "id": "/geotoolkit.attributes.LineStyle/properties/pixelsnapmode",
+                  "title": "Pixel Snap Mode",
+                  "description": "The pixes snapping mode for x and y components",
+                  "oneOf": [
+                     {
+                        "type": "object",
+                        "properties": {
+                           "x": {
+                              "type": "boolean",
+                              "description": "The pixel snapping along x axis",
+                              "default": false,
+                              "id": "/geotoolkit.attributes.LineStyle/properties/pixelsnapmode/properties/x"
+                           },
+                           "y": {
+                              "type": "boolean",
+                              "description": "The pixel snapping along y axis",
+                              "default": false,
+                              "id": "/geotoolkit.attributes.LineStyle/properties/pixelsnapmode/properties/y"
+                           }
+                        }
+                     },
+                     {
+                        "type": "string",
+                        "memento": true
+                     }
+                  ]
+               },
+               "linejoin": {
+                  "default": "round",
+                  "id": "/geotoolkit.attributes.LineStyle/properties/linejoin",
+                  "title": "Line Join",
+                  "enum": [
+                     "round",
+                     "mitter",
+                     "square"
+                  ],
+                  "description": "The shape formed on the joins of the lines",
+                  "type": "string"
+               },
+               "linecap": {
+                  "default": "round",
+                  "id": "/geotoolkit.attributes.LineStyle/properties/linecap",
+                  "title": "Line Cap",
+                  "enum": [
+                     "butt",
+                     "round",
+                     "square"
+                  ],
+                  "description": "The shape formed on the edges of the lines",
+                  "type": "string"
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "defaullt": "geotoolkit.attributes.LineStyle",
+                        "id": "/geotoolkit.attributes.LineStyle/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "description": "This document contains a schema describing geotoolkit.attributes.Pattern class instance",
+      "id": "/geotoolkit.attributes.Pattern",
+      "title": "Geotoolkit Pattern Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.util.EventDispatcher"
+         },
+         {
+            "properties": {
+               "patternname": {
+                  "default": "",
+                  "description": "The name of the pattern",
+                  "id": "/geotoolkit.attributes.Pattern/properties/patternname",
+                  "title": "Name",
+                  "type": "string"
+               },
+               "containername": {
+                  "default": null,
+                  "description": "The name of the container where the to take pattern from",
+                  "id": "/geotoolkit.attributes.Pattern/properties/containername",
+                  "title": "Container Name",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "src": {
+                  "description": "The source string of the pattern image. Can be a url or a Base64 string.",
+                  "id": "/geotoolkit.attributes.Pattern/properties/src",
+                  "title": "Source",
+                  "oneOf": [
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "alt": {
+                  "description": "The alternative text to display if pattern image can not be displayed",
+                  "id": "/geotoolkit.attributes.Pattern/properties/alt",
+                  "title": "Alt",
+                  "oneOf": [
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.attributes.Pattern",
+                        "id": "/geotoolkit.attributes.Pattern/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.attributes.TextStyle",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.ColoredStyle"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.attributes.TextStyle",
+                        "id": "/geotoolkit.attributes.TextStyle/properties/ClassName"
+                     }
+                  ],
+                  "font": {
+                     "default": "12px sans-serif",
+                     "id": "/geotoolkit.attributes.TextStyle/properties/font",
+                     "description": "The font family of the text",
+                     "title": "Font",
+                     "type": "string",
+                     "required": false
+                  },
+                  "baseline": {
+                     "default": "middle",
+                     "id": "/geotoolkit.attributes.TextStyle/properties/baseline",
+                     "enum": [
+                        "top",
+                        "hanging",
+                        "middle",
+                        "alphabetic",
+                        "ideographic",
+                        "bottom"
+                     ],
+                     "description": "The virtual vertical line along which the character rests",
+                     "title": "Base Line",
+                     "type": "string",
+                     "required": false
+                  },
+                  "alignment": {
+                     "default": "left",
+                     "id": "/geotoolkit.attributes.TextStyle/properties/alignment",
+                     "description": "The position of the text in the containing bounds relative to the center.",
+                     "enum": [
+                        "start",
+                        "end",
+                        "left",
+                        "center",
+                        "right"
+                     ],
+                     "title": "Alignment",
+                     "type": "string",
+                     "required": false
+                  },
+                  "lineheight": {
+                     "default": "100%",
+                     "id": "/geotoolkit.attributes.TextStyle/properties/lineheight",
+                     "description": "CSS formatted height of a single line of text",
+                     "title": "Line Height",
+                     "type": "string",
+                     "required": false
+                  },
+                  "multiline": {
+                     "default": true,
+                     "id": "/geotoolkit.attributes.TextStyle/properties/multiline",
+                     "description": "Defines if the text should be split into multiple lines or keep one line regardless of the length.",
+                     "title": "Multiline",
+                     "type": "boolean",
+                     "required": false
+                  },
+                  "autosize": {
+                     "default": true,
+                     "id": "/geotoolkit.attributes.TextStyle/properties/autosize",
+                     "description": "Auto font size on high definition display.",
+                     "title": "Auto Size",
+                     "type": "boolean",
+                     "required": false
+                  }
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "Schema describing padding or margin.",
+      "title": "Padding or Margin Schema",
+      "id": "/geotoolkit.attributes.SpaceStyle",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.Style"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.attributes.SpaceStyle",
+                        "id": "/geotoolkit.attributes.PaddingStyle/properties/ClassName"
+                     }
+                  ]
+               },
+               "left": {
+                  "default": 0,
+                  "description": "The left space",
+                  "id": "/geotoolkit.attributes.SpaceStyle/properties/left",
+                  "title": "left",
+                  "oneOf": [
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "right": {
+                  "default": 0,
+                  "description": "The right space",
+                  "id": "/geotoolkit.attributes.SpaceStyle/properties/right",
+                  "title": "right",
+                  "oneOf": [
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "top": {
+                  "default": 0,
+                  "description": "The top space",
+                  "id": "/geotoolkit.attributes.SpaceStyle/properties/top",
+                  "title": "top",
+                  "oneOf": [
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "bottom": {
+                  "default": 0,
+                  "description": "The bottom space",
+                  "id": "/geotoolkit.attributes.SpaceStyle/properties/bottom",
+                  "title": "bottom",
+                  "oneOf": [
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.axis.TickGenerator"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.AdaptiveDateTimeTickGenerator",
+                        "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/ClassName"
+                     }
+                  ]
+               },
+               "timezone": {
+                  "default": 0,
+                  "description": "The enum value of the time zone to which the time ticks should be formatted.",
+                  "enum": [
+                     0,
+                     1
+                  ],
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/timezone",
+                  "title": "Time Zone",
+                  "type": "integer"
+               },
+               "formatlabeleventhandler": {
+                  "default": null,
+                  "description": "A function used by the tickgenerator to build a label for a given model value",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/formatlabeleventhandler",
+                  "title": "Format Label Handler",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "minspan": {
+                  "default": 15,
+                  "description": "Minimum distance between ticks in device space",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/minspan",
+                  "title": "Minimum Span",
+                  "type": "number"
+               },
+               "labelminspan": {
+                  "default": 10,
+                  "description": "Minimum distance between 2 labels",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/labelminspan",
+                  "title": "Label Minimum Span",
+                  "type": "number"
+               },
+               "labeledgespan": {
+                  "default": 2,
+                  "description": "Distance of label from edge",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/labeledgespan",
+                  "title": "The Labeledgespan Schema",
+                  "type": "number"
+               },
+               "rotatelabels": {
+                  "default": true,
+                  "description": "Flag defining if labels should be rotated",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/rotatelabels",
+                  "title": "Rotate Labels",
+                  "type": "boolean"
+               },
+               "localtimezoneoffset": {
+                  "default": 0,
+                  "description": "The offset of time zone",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/localtimezoneoffset",
+                  "title": "Local Time Zone Offset",
+                  "type": "number"
+               },
+               "edgetick": {
+                  "description": "The styling of the edge tick, or a reference to a style in tickstyles object.",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/edgetick",
+                  "title": "Edge Tick Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "edgelabel": {
+                  "description": "The styling of the edge label, or a reference to a style in labelstyles object.",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/edgelabel",
+                  "title": "Edge Label Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.TextStyle"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "majorlabel": {
+                  "description": "The styling of the major label, or a reference to a style in labelstyles object.",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/majorlabel",
+                  "title": "Major Label Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.TextStyle"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "majortick": {
+                  "description": "The styling of the major tick, or a reference to a style in tickstyles object.",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/majortick",
+                  "title": "Major Tick Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "minorlabel": {
+                  "description": "The styling of the minor label, or a reference to a style in labelstyles object.",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/minorlabel",
+                  "title": "Minor Label Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.TextStyle"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "minortick": {
+                  "description": "The styling of the minor tick, or a reference to a style in tickstyles object.",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/minortick",
+                  "title": "Minor Tick Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.axis.AdaptiveLogTickGenerator",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.axis.NumericTickGenerator"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.AdaptiveLogTickGenerator",
+                        "id": "/geotoolkit.axis.AdaptiveLogTickGenerator/properties/ClassName"
+                     }
+                  ]
+               },
+               "orientation": {
+                  "default": "vertical",
+                  "description": "The direction in which the axis grows.",
+                  "enum": [
+                     "vertical",
+                     "horizontal"
+                  ],
+                  "id": "/geotoolkit.axis.AdaptiveLogTickGenerator/properties/orientation",
+                  "title": "Orientation",
+                  "type": "string"
+               }
+            }
+         }
+      ],
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.axis.AdaptiveTickGenerator",
+      "description": "Schema describing carnac Adaptive Tick Generator",
+      "title": "Adaptive Tick Generator Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.axis.TickGenerator"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.AdaptiveTickGenerator",
+                        "id": "/geotoolkit.axis.AdaptiveTickGenerator/properties/ClassName"
+                     }
+                  ]
+               },
+               "minorticksamount": {
+                  "default": 5,
+                  "description": "Number of minor ticks in between majors",
+                  "id": "/geotoolkit.axis.AdaptiveTickGenerator/properties/minorticksamount",
+                  "title": "Minor Ticks Amount",
+                  "type": "integer"
+               },
+               "minspan": {
+                  "default": 75,
+                  "description": "Minimum distance between ticks",
+                  "id": "/geotoolkit.axis.AdaptiveTickGenerator/properties/minspan",
+                  "title": "Minimum Span",
+                  "type": "number"
+               },
+               "minspangrade": {
+                  "default": "MAJOR",
+                  "description": "Grade to specify minimum distance between ticks",
+                  "id": "/geotoolkit.axis.AdaptiveTickGenerator/properties/minspangrade",
+                  "title": "Grade for Minimum Span",
+                  "type": "string",
+                  "required": false
+               },
+               "precision": {
+                  "default": 9,
+                  "description": "Defines the precision of each tick",
+                  "id": "/geotoolkit.axis.AdaptiveTickGenerator/properties/precision",
+                  "title": "Precision",
+                  "type": "number"
+               },
+               "hidelabelsonspantoosmall": {
+                  "default": true,
+                  "description": "Flag defining if labels should be filtered automatically if they are overlapped",
+                  "enum": [
+                     true,
+                     false
+                  ],
+                  "id": "/geotoolkit.axis.AdaptiveTickGenerator/properties/hidelabelsonspantoosmall",
+                  "title": "Hide Labels on Span Too Small",
+                  "type": "boolean"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "Schema describing the geotoolkit Axis",
+      "title": "Axis",
+      "id": "/geotoolkit.axis.Axis",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.AbstractNode"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.Axis",
+                        "id": "/geotoolkit.axis.Axis/properties/ClassName"
+                     }
+                  ]
+               },
+               "autolabelrotation": {
+                  "default": false,
+                  "description": "Flag defining if labels should rotate automatically",
+                  "enum": [
+                     true,
+                     false
+                  ],
+                  "id": "/geotoolkit.axis.Axis/properties/autolabelrotation",
+                  "title": "Auto Label Rotation",
+                  "type": "boolean"
+               },
+               "baselinestyle": {
+                  "id": "/geotoolkit.axis.Axis/properties/baselinestyle",
+                  "title": "Base Line Style",
+                  "description": "The line style of the base line of the axis",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     }
+                  ]
+               },
+               "labeloffset": {
+                  "default": 2,
+                  "description": "The offset of labels from the ticks",
+                  "id": "/geotoolkit.axis.Axis/properties/labeloffset",
+                  "title": "Label Offset",
+                  "type": "number"
+               },
+               "labelposition": {
+                  "default": "center",
+                  "description": "Defines the position of the label relative to the axis.",
+                  "enum": [
+                     "center",
+                     "left",
+                     "top",
+                     "right",
+                     "bottom"
+                  ],
+                  "id": "/geotoolkit.axis.Axis/properties/labelposition",
+                  "title": "Label Position",
+                  "type": "string"
+               },
+               "linestyle": {
+                  "additionalProperties": true,
+                  "id": "/geotoolkit.axis.Axis/properties/linestyle",
+                  "description": "The default line style to set to ticks",
+                  "title": "Line Style",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     }
+                  ]
+               },
+               "hideoverlappedtext": {
+                  "default": true,
+                  "description": "Flag defining if labels should be filtered automatically",
+                  "enum": [
+                     true,
+                     false
+                  ],
+                  "id": "/geotoolkit.axis.Axis/properties/hideoverlappedtext",
+                  "title": "Hide Overlapped Text",
+                  "type": "boolean"
+               },
+               "orientation": {
+                  "default": "vertical",
+                  "description": "The direction that the axis is growing.",
+                  "enum": [
+                     "horizontal",
+                     "vertical"
+                  ],
+                  "id": "/geotoolkit.axis.Axis/properties/orientation",
+                  "title": "Orientation",
+                  "type": "string"
+               },
+               "textstyle": {
+                  "additionalProperties": true,
+                  "id": "/geotoolkit.axis.Axis/properties/textstyle",
+                  "type": "object",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.attributes.TextStyle"
+                     }
+                  ]
+               },
+               "tickgenerator": {
+                  "description": "The class used to generate the ticks and labels for the axis",
+                  "title": "Tick Generator",
+                  "id": "/geotoolkit.axis.Axis/properties/tickgenerator",
+                  "anyOf": [
+                     {
+                        "$ref": "/geotoolkit.axis.AdaptiveTickGenerator"
+                     },
+                     {
+                        "$ref": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator"
+                     },
+                     {
+                        "$ref": "/geotoolkit.axis.AdaptiveLogTickGenerator"
+                     },
+                     {
+                        "$ref": "/geotoolkit.axis.DateTimeTickGenerator"
+                     },
+                     {
+                        "$ref": "/geotoolkit.axis.DiscreteValueTickGenerator"
+                     },
+                     {
+                        "$ref": "/geotoolkit.axis.NumericLinearTickGenerator"
+                     },
+                     {
+                        "$ref": "/geotoolkit.axis.NumericTickGenerator"
+                     },
+                     {
+                        "$ref": "/geotoolkit.axis.SecondaryTickGenerator"
+                     }
+                  ]
+               },
+               "tickposition": {
+                  "default": "leftandright",
+                  "description": "The position of the tick relative to the axis.",
+                  "enum": [
+                     "left",
+                     "top",
+                     "right",
+                     "bottom",
+                     "leftandright",
+                     "topandbottom",
+                     "between",
+                     "middle"
+                  ],
+                  "id": "/geotoolkit.axis.Axis/properties/tickposition",
+                  "title": "Tick Position",
+                  "type": "string"
+               },
+               "title": {
+                  "id": "/geotoolkit.axis.Axis/properties/title",
+                  "description": "An object containing the properties for the axis title",
+                  "title": "Title",
+                  "properties": {
+                     "alignment": {
+                        "description": "The alignment of the title relative to its parent bounds.",
+                        "id": "/geotoolkit.axis.Axis/properties/title/properties/alignment",
+                        "title": "Alignment",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "$ref": "/geotoolkit.util.AnchorType"
+                           }
+                        ]
+                     },
+                     "title": {
+                        "description": "The string representing the actual title to display",
+                        "id": "/geotoolkit.axis.Axis/properties/title/properties/title",
+                        "title": "Title",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "type": "string"
+                           }
+                        ]
+                     },
+                     "visible": {
+                        "default": false,
+                        "description": "The flag which defines if the title is visible.",
+                        "id": "/geotoolkit.axis.Axis/properties/title/properties/visible",
+                        "title": "Title Visible",
+                        "type": "boolean"
+                     }
+                  },
+                  "type": "object"
+               },
+               "visiblebaseline": {
+                  "default": true,
+                  "description": "Flag which defines if the base line of the axis should be visible",
+                  "id": "/geotoolkit.axis.Axis/properties/visiblebaseline",
+                  "title": "Base Line Visible",
+                  "type": "boolean"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.axis.DateTimeTickGenerator",
+      "type": "object",
+      "description": "A schema describing carnac Date Time Tick Generator.",
+      "title": "Date Time Tick Generator Schema",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.axis.TickGenerator"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.DateTimeTickGenerator",
+                        "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/ClassName"
+                     }
+                  ]
+               },
+               "formatlabeleventhandler": {
+                  "default": null,
+                  "description": "A function used by the tickgenerator to build a label for a given model value",
+                  "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/formatlabeleventhandler",
+                  "title": "Format Label Handler",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "labelmode": {
+                  "default": 0,
+                  "description": "The two label modes: 'default' and 'between' define if labels have to be generated on top of each ticks, or in between, displaying the middle value of two ticks.",
+                  "miminum": 0,
+                  "maximum": 1,
+                  "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/labelmode",
+                  "title": "Label Mode",
+                  "type": "integer"
+               },
+               "localtimezoneoffset": {
+                  "default": 0,
+                  "description": "The offset of time zone",
+                  "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/localtimezoneoffset",
+                  "title": "Local Time Zone Offset",
+                  "type": "number"
+               },
+               "majorlabel": {
+                  "description": "The styling of the major label, or a reference to a style in labelstyles object.",
+                  "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/majorlabel",
+                  "title": "Major Label Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.TextStyle"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "majortick": {
+                  "description": "The styling of the major tick, or a reference to a style in tickstyles object.",
+                  "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/majortick",
+                  "title": "Major Tick Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "rotatelabels": {
+                  "default": true,
+                  "description": "Flag defining if labels should be rotated",
+                  "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/rotatelabels",
+                  "title": "Rotate Labels",
+                  "type": "boolean"
+               },
+               "tickgrades": {
+                  "additionalItems": false,
+                  "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/tickgrades",
+                  "description": "Array of the type of ticks that are supported",
+                  "items": {
+                     "type": "string"
+                  },
+                  "type": "array",
+                  "uniqueItems": false
+               },
+               "timezone": {
+                  "default": 0,
+                  "description": "The enum value of the time zone to which the time ticks should be formatted.",
+                  "id": "/geotoolkit.axis.AdaptiveDateTimeTickGenerator/properties/timezone",
+                  "enum": [
+                     0,
+                     1
+                  ],
+                  "title": "Time Zone",
+                  "type": "integer"
+               },
+               "unitconversionfactor": {
+                  "default": 1,
+                  "description": "The factor by which the value of the labels should be divided to convert into the current unit of the axis.",
+                  "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/unitconversionfactor",
+                  "title": "Unit Conversion Factor",
+                  "type": "number"
+               },
+               "zoomlevel": {
+                  "default": 9,
+                  "description": "The amount of time that the space between two ticks represents.",
+                  "minimum": 0,
+                  "maximum": 14,
+                  "id": "/geotoolkit.axis.DateTimeTickGenerator/properties/zoomlevel",
+                  "title": "The Zoomlevel Schema",
+                  "type": "integer"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "id": "/geotoolkit.axis.DateZoomLevel",
+      "description": "The schema of date zoom level enum",
+      "properties": {
+         "Centisecond": {
+            "default": 1,
+            "description": "0.01 seconds",
+            "enum": [
+               1
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Centisecond",
+            "title": "Centisecond",
+            "type": "integer"
+         },
+         "Century": {
+            "default": 14,
+            "description": "100 years",
+            "enum": [
+               14
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Century",
+            "title": "Century",
+            "type": "integer"
+         },
+         "Day": {
+            "default": 9,
+            "description": "24 hours",
+            "enum": [
+               9
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Day",
+            "title": "Day",
+            "type": "integer"
+         },
+         "Decade": {
+            "default": 13,
+            "description": "10 years",
+            "enum": [
+               13
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Decade",
+            "title": "Decade",
+            "type": "integer"
+         },
+         "Decisecond": {
+            "default": 2,
+            "description": "0.1 seconds",
+            "enum": [
+               2
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Decisecond",
+            "title": "Decisecond",
+            "type": "integer"
+         },
+         "Hour": {
+            "default": 7,
+            "description": "60 minutes",
+            "enum": [
+               7
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Hour",
+            "title": "Hour",
+            "type": "integer"
+         },
+         "Millisecond": {
+            "default": 0,
+            "description": "0.001 seconds",
+            "enum": [
+               0
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Millisecond",
+            "title": "Millisecond",
+            "type": "integer"
+         },
+         "Minute": {
+            "default": 5,
+            "description": "60 seconds",
+            "enum": [
+               5
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Minute",
+            "title": "Minute",
+            "type": "integer"
+         },
+         "Month": {
+            "default": 11,
+            "description": "~30 days",
+            "enum": [
+               11
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Month",
+            "title": "Month",
+            "type": "integer"
+         },
+         "Second": {
+            "default": 3,
+            "description": "The base unit of time",
+            "enum": [
+               3
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Second",
+            "title": "Second",
+            "type": "integer"
+         },
+         "SixHours": {
+            "default": 8,
+            "description": "6 hours",
+            "enum": [
+               8
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/SixHours",
+            "title": "Sixhours",
+            "type": "integer"
+         },
+         "TenMinutes": {
+            "default": 6,
+            "description": "10 minutes",
+            "enum": [
+               6
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/TenMinutes",
+            "title": "Tenminutes",
+            "type": "integer"
+         },
+         "TenSeconds": {
+            "default": 4,
+            "description": "10 seconds",
+            "enum": [
+               4
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/TenSeconds",
+            "title": "Tenseconds",
+            "type": "integer"
+         },
+         "Week": {
+            "default": 10,
+            "description": "7 days",
+            "enum": [
+               10
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Week",
+            "title": "Week",
+            "type": "integer"
+         },
+         "Year": {
+            "default": 12,
+            "description": "365 days",
+            "enum": [
+               12
+            ],
+            "id": "/geotoolkit.axis.DateZoomLevel/properties/Year",
+            "title": "Year",
+            "type": "integer"
+         }
+      },
+      "type": "object"
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.axis.DiscreteValueTickGenerator",
+      "title": "Discrete Value Tick Generator Schema",
+      "description": "Schema describing Discrete Tick Generator",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.axis.TickGenerator"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.DiscreteValueTickGenerator",
+                        "id": "/geotoolkit.axis.DiscreteValueTickGenerator/properties/ClassName"
+                     }
+                  ]
+               },
+               "maxlabel": {
+                  "default": "",
+                  "description": "The maximum label displayed in this axis",
+                  "id": "/geotoolkit.axis.DiscreteValueTickGenerator/properties/maxlabel",
+                  "title": "Maximum Label",
+                  "type": "string"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.axis.NumericLinearTickGenerator",
+      "title": "Numeric Linear Tick Generator Schema",
+      "description": "Schema describing carnac numeric linear tick generator",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.axis.NumericTickGenerator"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.NumericLinearTickGenerator",
+                        "id": "/geotoolkit.axis.NumericLinearTickGenerator/properties/ClassName"
+                     }
+                  ]
+               },
+               "majormodelstep": {
+                  "default": 0,
+                  "description": "The step of major ticks - difference between two adjacent major ticks in model.",
+                  "id": "/geotoolkit.axis.NumericLinearTickGenerator/properties/majormodelstep",
+                  "title": "Major Model Step",
+                  "type": "number"
+               },
+               "minormodelstep": {
+                  "default": 0,
+                  "description": "The step of major ticks - difference between two adjacent minor ticks in model.",
+                  "id": "/geotoolkit.axis.NumericLinearTickGenerator/properties/minormodelstep",
+                  "title": "Minor Model Step",
+                  "type": "number"
+               },
+               "offset": {
+                  "default": 0,
+                  "description": "The offset for the first tick of the tick generator.",
+                  "id": "/geotoolkit.axis.NumericLinearTickGenerator/properties/offset",
+                  "title": "Offset",
+                  "type": "number"
+               },
+               "precision": {
+                  "default": 9,
+                  "description": "Number of digits after the dot in a fraction",
+                  "id": "/geotoolkit.axis.NumericLinearTickGenerator/properties/precision",
+                  "title": "Precision",
+                  "type": "integer"
+               },
+               "hidelabelsonspantoosmall": {
+                  "default": true,
+                  "description": "Flag defining if labels should be filtered automatically if they are overlapped",
+                  "enum": [
+                     true,
+                     false
+                  ],
+                  "id": "/geotoolkit.axis.NumericLinearTickGenerator/properties/hidelabelsonspantoosmall",
+                  "title": "Hide Labels on Span Too Small",
+                  "type": "boolean"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.axis.NumericTickGenerator",
+      "description": "The schema describing carnac numeric tick generator.",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.axis.TickGenerator"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.NumericTickGenerator",
+                        "id": "/geotoolkit.axis.NumericTickGenerator/properties/ClassName"
+                     }
+                  ]
+               },
+               "formatlabeleventhandler": {
+                  "description": "Serialized handler function which is called to specify format of the label",
+                  "id": "/geotoolkit.axis.NumericTickGenerator/properties/formatlabeleventhandler",
+                  "title": "Format Label Event Handler",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ]
+               },
+               "edge": {
+                  "description": "Number formatting of the edge labels.",
+                  "id": "/geotoolkit.axis.NumericTickGenerator/properties/edge",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.NumberFormat"
+                     }
+                  ]
+               },
+               "major": {
+                  "description": "Number formatting of the major labels.",
+                  "id": "/geotoolkit.axis.NumericTickGenerator/properties/major",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.NumberFormat"
+                     }
+                  ]
+               },
+               "minor": {
+                  "description": "Number formatting of the minor labels.",
+                  "id": "/geotoolkit.axis.NumericTickGenerator/properties/minor",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.NumberFormat"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.axis.SecondaryTickGenerator",
+      "description": "Schema describing carnac Secondary Tick Generator",
+      "title": "Secondary Tick Generator Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.axis.NumericTickGenerator"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.SecondaryTickGenerator",
+                        "id": "/geotoolkit.axis.SecondaryTickGenerator/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.axis.TickGenerator",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.axis.TickGenerator",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/ClassName"
+                     }
+                  ]
+               },
+               "labelangles": {
+                  "id": "/geotoolkit.axis.TickGenerator/properties/labelangles",
+                  "type": "object",
+                  "properties": {
+                     "MAJOR": {
+                        "title": "Major Label Rotation Angle",
+                        "description": "The angle by which the major labels should be rotated",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/labelangles/properties/MAJOR",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "type": "number"
+                           }
+                        ],
+                        "required": false
+                     },
+                     "MINOR": {
+                        "title": "Major Label Rotation Angle",
+                        "description": "The angle by which the minor labels should be rotated",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/labelangles/properties/MINOR",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "type": "number"
+                           }
+                        ],
+                        "required": false
+                     },
+                     "EDGE": {
+                        "title": "Major Label Rotation Angle",
+                        "description": "The angle by which the edge labels should be rotated",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/labelangles/properties/EDGE",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "type": "number"
+                           }
+                        ],
+                        "required": false
+                     }
+                  }
+               },
+               "labelstyles": {
+                  "id": "/geotoolkit.axis.TickGenerator/properties/labelstyles",
+                  "type": "object",
+                  "properties": {
+                     "MAJOR": {
+                        "title": "Major Label Style",
+                        "description": "Major tick labels' text style",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/labelstyles/properties/MAJOR",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "$ref": "/geotoolkit.attributes.TextStyle"
+                           }
+                        ],
+                        "required": false
+                     },
+                     "MINOR": {
+                        "title": "Minor Label Style",
+                        "description": "Minor tick labels' text style",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/labelstyles/properties/MINOR",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "$ref": "/geotoolkit.attributes.TextStyle"
+                           }
+                        ],
+                        "required": false
+                     },
+                     "EDGE": {
+                        "title": "Edge Label Style",
+                        "description": "Edge tick labels' text style",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/labelstyles/properties/EDGE",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "$ref": "/geotoolkit.attributes.TextStyle"
+                           }
+                        ],
+                        "required": false
+                     }
+                  }
+               },
+               "logscale": {
+                  "default": false,
+                  "description": "Defines if the tick generator is logarithmic",
+                  "id": "/geotoolkit.axis.TickGenerator/properties/logscale",
+                  "title": "Logarithmic",
+                  "type": "boolean"
+               },
+               "tag": {
+                  "id": "/geotoolkit.axis.TickGenerator/properties/tag",
+                  "description": "User specified additional info about this object",
+                  "title": "Tag",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "object"
+                     },
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "tickstyles": {
+                  "additionalProperties": true,
+                  "id": "/geotoolkit.axis.TickGenerator/properties/tickstyles",
+                  "type": "object",
+                  "properties": {
+                     "MAJOR": {
+                        "title": "Major Tick Style",
+                        "description": "The line style of major ticks.",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/tickstyles/properties/MAJOR",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "$ref": "/geotoolkit.attributes.LineStyle"
+                           }
+                        ],
+                        "required": false
+                     },
+                     "MINOR": {
+                        "title": "Minor Tick Style",
+                        "description": "The line style of minor ticks.",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/tickstyles/properties/MINOR",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "$ref": "/geotoolkit.attributes.LineStyle"
+                           }
+                        ],
+                        "required": false
+                     },
+                     "EDGE": {
+                        "title": "Edge Tick Style",
+                        "description": "The line style of edge ticks.",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/tickstyles/properties/EDGE",
+                        "oneOf": [
+                           {
+                              "type": "null"
+                           },
+                           {
+                              "$ref": "/geotoolkit.attributes.LineStyle"
+                           }
+                        ],
+                        "required": false
+                     }
+                  }
+               },
+               "visiblelabels": {
+                  "description": "Contains labels which should be visible",
+                  "title": "Visible Labels",
+                  "id": "/geotoolkit.axis.TickGenerator/properties/visiblelabels",
+                  "type": "object",
+                  "properties": {
+                     "MAJOR": {
+                        "default": true,
+                        "title": "Major Label Visible",
+                        "description": "The visibility flag for major labels.",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/visiblelabels/properties/MAJOR",
+                        "type": "boolean",
+                        "required": false
+                     },
+                     "MINOR": {
+                        "default": false,
+                        "title": "Minor Label Visible",
+                        "description": "The visibility flag for minor labels.",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/visiblelabels/properties/MINOR",
+                        "type": "boolean",
+                        "required": false
+                     },
+                     "EDGE": {
+                        "default": true,
+                        "title": "Edge Label Visible",
+                        "description": "The visibility flag for edge labels.",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/visiblelabels/properties/EDGE",
+                        "type": "boolean",
+                        "required": false
+                     }
+                  }
+               },
+               "visibleticks": {
+                  "description": "Contains ticks which should be visible",
+                  "title": "Visible Ticks",
+                  "id": "/geotoolkit.axis.TickGenerator/properties/visibleticks",
+                  "type": "object",
+                  "properties": {
+                     "MAJOR": {
+                        "default": true,
+                        "title": "Major Ticks Visible",
+                        "description": "The visibility flag for major ticks.",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/visibleticks/properties/MAJOR",
+                        "type": "boolean",
+                        "required": false
+                     },
+                     "MINOR": {
+                        "default": true,
+                        "title": "Minor Ticks Visible",
+                        "description": "The visibility flag for minor ticks.",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/visibleticks/properties/MINOR",
+                        "type": "boolean",
+                        "required": false
+                     },
+                     "EDGE": {
+                        "default": true,
+                        "title": "Edge Ticks Visible",
+                        "description": "The visibility flag for edge ticks.",
+                        "id": "/geotoolkit.axis.TickGenerator/properties/visibleticks/properties/EDGE",
+                        "type": "boolean",
+                        "required": false
+                     }
+                  }
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "description": "Schema describing geotoolkit css style attribute",
+      "id": "/geotoolkit.css.CssStyle",
+      "title": "CSS Style Root Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.css.CssStyle",
+                        "id": "/geotoolkit.css.CssStyle/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "Schema describing geotoolkit layout",
+      "id": "/geotoolkit.layout.Layout",
+      "title": "Carnac Format",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {}
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.layout.SizeConstraint",
+      "type": "string",
+      "description": "Schema describing the geotoolkit layout SizeConstraint"
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.layout.LayoutStyle",
+      "type": "object",
+      "description": "Schema describing the geotoolkit Layout Style class",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.attributes.Style"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "defaullt": "geotoolkit.layout.LayoutStyle",
+                        "id": "/geotoolkit.layout.LayoutStyle/properties/ClassName"
+                     }
+                  ]
+               },
+               "height": {
+                  "description": "The height of the object",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/height",
+                  "title": "Height",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "width": {
+                  "description": "The width of the object",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/width",
+                  "title": "Width",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "left": {
+                  "description": "X coordinate of left top corner",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/left",
+                  "title": "Left",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "top": {
+                  "description": "Y coordinate of left top corner",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/top",
+                  "title": "Top",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "right": {
+                  "description": "X coordinate of right bottom corner",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/right",
+                  "title": "Right",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "bottom": {
+                  "description": "Y coordinate of right bottom corner",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/bottom",
+                  "title": "Bottom",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "min-height": {
+                  "description": "The minimum height of the object",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/min-height",
+                  "title": "MinHeight",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "min-width": {
+                  "description": "The minimum width of the object",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/min-width",
+                  "title": "MinWidth",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "max-height": {
+                  "description": "The maximum height of the object",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/max-height",
+                  "title": "MaxHeight",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "max-width": {
+                  "description": "The maximum width of the object",
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/max-width",
+                  "title": "MaxWidth",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               },
+               "constraint": {
+                  "description": "Size constraint",
+                  "default": 0,
+                  "id": "/geotoolkit.layout.LayoutStyle/properties/constraint",
+                  "title": "Constraint",
+                  "oneOf": [
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "required": false
+               }
+            }
+         }
+      ]
+   },
+   {
+      "description": "An explanation about the purpose of this instance",
+      "id": "/ClassName",
+      "title": "Class Name",
+      "type": "string"
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "description": "Describes a base for every other schema. Describes an object returned when serializing a geotoolkit class which does not return any properties.",
+      "id": "/EmptyClass",
+      "title": "Empty Class Schema",
+      "type": "object",
+      "properties": {
+         "mementoId": {
+            "default": 0,
+            "description": "Utility property used for serialization. Should not be used anywhere else.",
+            "id": "/EmptyClass/properties/mementoId",
+            "title": "Memento ID",
+            "type": "integer",
+            "required": false
+         }
+      }
+   },
+   {
+      "additionalProperties": true,
+      "description": "Schema describing the Graphics Path class of carnac renderer",
+      "id": "/geotoolkit.renderer.GraphicsPath",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "bounds": {
+                  "default": null,
+                  "description": "The bounds of this path",
+                  "id": "/geotoolkit.renderer.GraphicsPath/properties/bounds",
+                  "title": "Bounds",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.Rect"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "index": {
+                  "additionalItems": false,
+                  "id": "/geotoolkit.renderer.GraphicsPath/properties/index",
+                  "type": "array",
+                  "title": "Index Array",
+                  "uniqueItems": false
+               },
+               "tags": {
+                  "id": "/geotoolkit.renderer.GraphicsPath/properties/tags",
+                  "title": "Tags Array",
+                  "type": "array",
+                  "additionalItems": false,
+                  "uniqueItems": false,
+                  "items": [
+                     {
+                        "type": "integer"
+                     }
+                  ]
+               },
+               "x": {
+                  "id": "/geotoolkit.renderer.GraphicsPath/properties/x",
+                  "additionalItems": false,
+                  "uniqueItems": false,
+                  "items": [
+                     {
+                        "type": "number"
+                     }
+                  ],
+                  "type": "array",
+                  "description": "An array containing x coordinates of points defining the geometry",
+                  "title": "X Coordinates"
+               },
+               "y": {
+                  "id": "/geotoolkit.renderer.GraphicsPath/properties/y",
+                  "additionalItems": false,
+                  "uniqueItems": false,
+                  "items": [
+                     {
+                        "type": "number"
+                     }
+                  ],
+                  "type": "array",
+                  "description": "An array containing y coordinates of points defining the geometry",
+                  "title": "Y Coordinates"
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.renderer.GraphicsPath",
+                        "id": "/geotoolkit.renderer.GraphicsPath/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "A JSON schema describing geotoolkit Abstract Node",
+      "id": "/geotoolkit.scene.AbstractNode",
+      "title": "Geotoolkit Abstract Node Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.Node"
+         },
+         {
+            "properties": {
+               "localTransform": {
+                  "description": "Transformation applied to this node",
+                  "id": "geotoolkit.scene.AbstractNode/properties/localTransform",
+                  "title": "Local Transformation",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.Transformation"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.scene.AbstractNode",
+                        "id": "/geotoolkit.scene.AbstractNode/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.scene.CompositeNode",
+      "description": "Schema describing carnac Composite Node",
+      "title": "Composite Node Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.AbstractNode"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.scene.CompositeNode",
+                        "id": "/geotoolkit.scene.CompositeNode/properties/ClassName"
+                     }
+                  ]
+               },
+               "children": {
+                  "type": "array",
+                  "id": "/geotoolkit.scene.CompositeNode/properties/children",
+                  "description": "An array containing any carnac node",
+                  "title": "Children",
+                  "items": {
+                     "type": "object"
+                  }
+               },
+               "clipping": {
+                  "id": "/geotoolkit.scene.CompositeNode/properties/clipping",
+                  "description": "A flag defining whether to enable clipping or not",
+                  "title": "Enable Clipping",
+                  "type": "boolean"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.scene.Group",
+      "description": "Schema describing Carnac Group",
+      "title": "Group Node Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.CompositeNode"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.scene.Group",
+                        "id": "/geotoolkit.scene.Group/properties/ClassName"
+                     }
+                  ]
+               },
+               "bounds": {
+                  "id": "/geotoolkit.scene.Group/properties/bounds",
+                  "description": "The bounds of Group",
+                  "title": "Bounds",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.Rect"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ],
+                  "required": false
+               },
+               "limits": {
+                  "id": "/geotoolkit.scene.Group/properties/limits",
+                  "description": "The model limits of Group",
+                  "title": "Limits",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.Rect"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ],
+                  "required": false
+               },
+               "verticalflip": {
+                  "id": "/geotoolkit.scene.Group/properties/verticalflip",
+                  "description": "A flag defining whether to enable vertical flipping or not",
+                  "title": "Enable Vertical Flipping",
+                  "type": "boolean",
+                  "default": false
+               },
+               "horizontalflip": {
+                  "id": "/geotoolkit.scene.Group/properties/horizontalflip",
+                  "description": "A flag defining whether to enable horizontal flipping or not",
+                  "title": "Enable Horizontal Flipping",
+                  "type": "boolean",
+                  "default": false
+               },
+               "pickingchildren": {
+                  "id": "/geotoolkit.scene.Group/properties/pickingchildren",
+                  "description": "A flag defining whether to enable picking children or not",
+                  "title": "Enable Picking Children",
+                  "type": "boolean",
+                  "default": true
+               },
+               "layoutstyle": {
+                  "id": "/geotoolkit.scene.Group/properties/layoutstyle",
+                  "description": "Layout Style",
+                  "title": "LayoutStyle",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.layout.LayoutStyle"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ],
+                  "required": false
+               },
+               "layout": {
+                  "description": "Group layout",
+                  "id": "/geotoolkit.scene.Group/properties/layout",
+                  "title": "Layout",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.layout.Layout"
+                     }
+                  ],
+                  "required": false
+               },
+               "fillstyle": {
+                  "description": "The background",
+                  "id": "/geotoolkit.scene.Group/properties/fillstyle",
+                  "title": "Fill Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.FillStyle"
+                     }
+                  ]
+               },
+               "linestyle": {
+                  "description": "The group border properties",
+                  "id": "/geotoolkit.scene.Group/properties/linestyle",
+                  "title": "Line Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "A JSON schema describing geotoolkit Node",
+      "id": "/geotoolkit.scene.Node",
+      "title": "Geotoolkit Node Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.util.EventDispatcher"
+         },
+         {
+            "properties": {
+               "name": {
+                  "description": "The name of this node to be referenced later.",
+                  "id": "/geotoolkit.scene.Node/properties/name",
+                  "title": "Name",
+                  "type": "string"
+               },
+               "selectable": {
+                  "default": true,
+                  "description": "Flag specifying if the rectangle is selectable",
+                  "id": "/geotoolkit.scene.Node/properties/_isSelectable",
+                  "title": "Selectable",
+                  "type": "boolean"
+               },
+               "visible": {
+                  "default": true,
+                  "description": "The flag defining if this node has to be rendered",
+                  "enum": [
+                     false,
+                     true
+                  ],
+                  "id": "/geotoolkit.scene.Node/properties/isVisible",
+                  "title": "Visible",
+                  "type": "boolean"
+               },
+               "id": {
+                  "id": "/geotoolkit.scene.Node/properties/id",
+                  "title": "ID",
+                  "description": "The id of this node instance used to identify this object",
+                  "anyOf": [
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "type": "number"
+                     }
+                  ]
+               },
+               "tag": {
+                  "description": "An object associated with the node by user, or a tag name/number",
+                  "id": "/geotoolkit.scene.Node/properties/tag",
+                  "title": "Tag",
+                  "anyOf": [
+                     {
+                        "type": "object"
+                     },
+                     {
+                        "type": "string"
+                     },
+                     {
+                        "type": "number"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.scene.Node",
+                        "id": "/geotoolkit.scene.Node/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.scene.shapes.AnchoredShape",
+      "type": "object",
+      "properties": {
+         "ClassName": {
+            "allOf": [
+               {
+                  "#ref": "/ClassName"
+               },
+               {
+                  "default": "geotoolkit.scene.shapes.AnchoredShape",
+                  "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/ClassName"
+               }
+            ]
+         },
+         "alignment": {
+            "default": 5,
+            "description": "The point on the shape by which it is aligned.",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/alignment",
+            "title": "Alignment",
+            "oneOf": [
+               {
+                  "$ref": "/geotoolkit.util.AnchorType"
+               }
+            ]
+         },
+         "ax": {
+            "default": 0,
+            "description": "The x component of the anchor point coordinate",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/ax",
+            "title": "Anchor X",
+            "type": "number"
+         },
+         "ay": {
+            "default": 0,
+            "description": "The Y component of the anchor point coordinate",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/ay",
+            "title": "Anchor Y",
+            "type": "integer"
+         },
+         "width": {
+            "default": 0,
+            "description": "The width of the shape",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/width",
+            "title": "Width",
+            "type": "number"
+         },
+         "height": {
+            "default": 0,
+            "description": "The height of the shape",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/height",
+            "title": "Height",
+            "type": "number"
+         },
+         "ispointingup": {
+            "default": false,
+            "description": "Defines if the shape is pointing up",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/ispointingup",
+            "title": "Is Pointing Up",
+            "type": "boolean"
+         },
+         "maxdimension": {
+            "description": "Maximum device space size",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/maxdimension",
+            "title": "Max Dimension",
+            "oneOf": [
+               {
+                  "type": "null"
+               },
+               {
+                  "$ref": "/geotoolkit.util.Dimension"
+               }
+            ]
+         },
+         "mindimension": {
+            "description": "Minimum device space size",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/mindimension",
+            "title": "Min dimension",
+            "oneOf": [
+               {
+                  "type": "null"
+               },
+               {
+                  "$ref": "/geotoolkit.util.Dimension"
+               }
+            ]
+         },
+         "preserveaspectratio": {
+            "default": false,
+            "description": "Boolean defining if aspect ratio has to be preserved at all times",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/preserveaspectratio",
+            "title": "Preserve Aspect Ratio",
+            "type": "boolean"
+         },
+         "preservereadingorientation": {
+            "default": false,
+            "description": "Flag defining if the shape has to be in reading orientation at all times",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/preservereadingorientation",
+            "title": "Preserve Reading Orientation",
+            "type": "boolean"
+         },
+         "preserverightangle": {
+            "default": false,
+            "description": "Preserve right angle for local transformation",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/preserverightangle",
+            "title": "Preserve Right Angle",
+            "type": "boolean"
+         },
+         "sizeisindevicespace": {
+            "default": false,
+            "description": "Defines if the size of the shape is calculated in device model",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/sizeisindevicespace",
+            "title": "Size is in Device Space",
+            "type": "boolean"
+         },
+         "useminmaxdimensions": {
+            "default": false,
+            "description": "Flag defining if the shape has to be clipped by max and min dimensions (if specified)",
+            "id": "/geotoolkit.scene.shapes.AnchoredShape/properties/useminmaxdimensions",
+            "title": "Use Min Max Dimensions",
+            "type": "boolean"
+         }
+      }
+   },
+   {
+      "additionalProperties": true,
+      "description": "This schema describes Carnac Rectangle Shape.",
+      "id": "/geotoolkit.scene.shapes.Rectangle",
+      "title": "Carnac Rectangle Shape Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.shapes.RectangularShape"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.scene.shapes.Rectangle",
+                        "id": "/geotoolkit.scene.shapes.Rectangle/properties/ClassName"
+                     }
+                  ]
+               },
+               "radius": {
+                  "default": 0,
+                  "type": "number",
+                  "id": "/geotoolkit.scene.shapes.Rectangle/properties/radius",
+                  "required": false,
+                  "description": "The corner radius of the rectangle",
+                  "title": "Corner Radius"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.scene.shapes.ScaledShape",
+      "description": "This schema describes Carnac Scaled Shape abstract class",
+      "title": "Carnac Scaled Shape Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.shapes.Shape"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.scene.shapes.ScaledShape",
+                        "id": "/geotoolkit.scene.shapes.ScaledShape/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.scene.shapes.RectangularShape",
+      "description": "This schema describes Carnac Rectangular Shape base class",
+      "title": "Carnac Rectangular Shape Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.shapes.ScaledShape"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.scene.shapes.RectangularShape",
+                        "id": "/geotoolkit.scene.shapes.RectangularShape/properties/ClassName"
+                     }
+                  ]
+               },
+               "bounds": {
+                  "id": "/geotoolkit.scene.shapes.RectangularShape/properties/bounds",
+                  "description": "The bounds of rectangle shape",
+                  "title": "Bounds",
+                  "oneOf": [
+                     {
+                        "$ref": "/geotoolkit.util.Rect"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ],
+                  "required": false
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "This schema describes Carnac Shape.",
+      "id": "/geotoolkit.scene.shapes.Shape",
+      "title": "Carnac Shape Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.AbstractNode"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.scene.shapes.Shape",
+                        "id": "/geotoolkit.scene.shapes.Shape/properties/ClassName"
+                     }
+                  ]
+               },
+               "fillstyle": {
+                  "description": "The shape fill properties",
+                  "id": "/geotoolkit.scene.shapes.Shape/properties/fillstyle",
+                  "title": "Fill Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.FillStyle"
+                     }
+                  ]
+               },
+               "linestyle": {
+                  "description": "The shape line properties",
+                  "id": "/geotoolkit.scene.shapes.Shape/properties/linestyle",
+                  "title": "Line Style",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.attributes.LineStyle"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "Schema describing carnac symbol",
+      "title": "Symbol Schema",
+      "id": "/geotoolkit.scene.shapes.Symbol",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.scene.shapes.AnchoredShape"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.scene.shapes.Symbol",
+                        "id": "/geotoolkit.scene.shapes.Symbol/properties/ClassName"
+                     }
+                  ]
+               },
+               "painter": {
+                  "description": "The name of the painter used to render the symbol, or the serialized painter function",
+                  "id": "/geotoolkit.scene.shapes.Symbol/properties/painter",
+                  "title": "Painter",
+                  "type": "string"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "title": "Anchor Type",
+      "description": "An enum defining all types of anchors supported by carnac",
+      "id": "/geotoolkit.util.AnchorType",
+      "minimum": 0,
+      "maximum": 9,
+      "type": "integer"
+   },
+   {
+      "$schema": "CarnacJS/schemas/rect.json",
+      "additionalProperties": true,
+      "definitions": {},
+      "description": "This schema describes a geotoolkit Rect instance",
+      "id": "/geotoolkit.util.Area",
+      "title": "Area Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.util.Area",
+                        "id": "/geotoolkit.util.Area/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "DSchema describing carnac dimension class",
+      "title": "Dimansion Schema",
+      "id": "/geotoolkit.util.Dimension",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.util.Dimension",
+                        "id": "/geotoolkit.util.Dimension/properties/ClassName"
+                     }
+                  ]
+               },
+               "height": {
+                  "default": 0,
+                  "description": "The height of the dimension",
+                  "minimum": 0,
+                  "id": "/geotoolkit.util.Dimension/properties/height",
+                  "title": "Height",
+                  "type": "number"
+               },
+               "width": {
+                  "default": 0,
+                  "description": "The width of the dimension",
+                  "minimum": 0,
+                  "id": "/geotoolkit.util.Dimension/properties/width",
+                  "title": "Width",
+                  "type": "number"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "description": "Schema describing geotoolkit event dispatcher",
+      "id": "/geotoolkit.util.EventDispatcher",
+      "title": "Event Dispatcher Root Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "links": {
+                  "additionalProperties": true,
+                  "description": "An object containing the event handlers.",
+                  "id": "geotoolkit.util.EventDispatcher/properties/links",
+                  "properties": {},
+                  "title": "Links",
+                  "type": [
+                     "object",
+                     "null"
+                  ]
+               },
+               "silent": {
+                  "description": "A flag defining if event handlers should be neglected.",
+                  "enum": [
+                     true,
+                     false
+                  ],
+                  "id": "geotoolkit.util.EventDispatcher/properties/silent",
+                  "title": "Silent",
+                  "type": "boolean"
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.util.EventDispatcher",
+                        "id": "/geotoolkit.util.EventDispatcher/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "Schema describing geotoolkit format",
+      "id": "/geotoolkit.util.Format",
+      "title": "Carnac Format",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.util.Format",
+                        "id": "/geotoolkit.util.Format/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.util.Locale",
+      "desctiption": "The schema describes the carnac Locale class.",
+      "properties": {
+         "ClassName": {
+            "default": "geotoolkit.util.Locale",
+            "description": "An explanation about the purpose of this instance.",
+            "id": "/geotoolkit.util.Locale/properties/ClassName",
+            "title": "The Classname Schema",
+            "type": "string"
+         },
+         "_locale": {
+            "default": "",
+            "description": "An explanation about the purpose of this instance.",
+            "id": "/geotoolkit.util.Locale/properties/_locale",
+            "title": "The _locale Schema",
+            "type": "string"
+         },
+         "_numberFormatInfo": {
+            "id": "/geotoolkit.util.Locale/properties/_numberFormatInfo",
+            "type": "object"
+         }
+      },
+      "type": "object"
+   },
+   {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "additionalProperties": true,
+      "definitions": {},
+      "id": "/geotoolkit.util.NumberFormat",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.util.Format"
+         },
+         {
+            "properties": {
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.util.NumberFormat",
+                        "id": "/geotoolkit.util.NumberFormat/properties/ClassName"
+                     }
+                  ]
+               },
+               "fulllocale": {
+                  "default": false,
+                  "description": "Specifies if the locale has to be displayed in full form",
+                  "id": "/geotoolkit.util.NumberFormat/properties/fulllocale",
+                  "title": "Display Full Locale",
+                  "type": "boolean"
+               },
+               "grouplength": {
+                  "default": 3,
+                  "description": "The length of group of numbers",
+                  "id": "/geotoolkit.util.NumberFormat/properties/grouplength",
+                  "title": "Group Length",
+                  "type": "integer"
+               },
+               "locale": {
+                  "description": "An explanation about the purpose of this instance.",
+                  "id": "/geotoolkit.util.NumberFormat/properties/locale",
+                  "title": "The Locale Schema",
+                  "oneOf": [
+                     {
+                        "type": "null"
+                     },
+                     {
+                        "$ref": "/geotoolkit.util.Locale"
+                     },
+                     {
+                        "type": "string",
+                        "memento": true
+                     }
+                  ]
+               },
+               "maximumfractiondigits": {
+                  "default": 3,
+                  "description": "Maximum digits to display after the point",
+                  "id": "/geotoolkit.util.NumberFormat/properties/maximumfractiondigits",
+                  "title": "The Maximumfractiondigits Schema",
+                  "type": "number"
+               },
+               "round": {
+                  "default": true,
+                  "description": "True to round up the number",
+                  "id": "/geotoolkit.util.NumberFormat/properties/round",
+                  "title": "The Round Schema",
+                  "type": "boolean"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.util.Range",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "high": {
+                  "default": 0,
+                  "description": "The maximum of the range",
+                  "id": "/geotoolkit.util.Range/properties/high",
+                  "title": "High",
+                  "type": "number"
+               },
+               "low": {
+                  "default": 0,
+                  "description": "The minimum of the range",
+                  "id": "/geotoolkit.util.Range/properties/low",
+                  "title": "Low",
+                  "type": "number"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "definitions": {},
+      "description": "This schema describes a geotoolkit Rect instance",
+      "id": "/geotoolkit.util.Rect",
+      "title": "Rect Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/geotoolkit.util.Area"
+         },
+         {
+            "properties": {
+               "height": {
+                  "description": "The height of the rectangle.",
+                  "id": "/geotoolkit.util.Rect/properties/height",
+                  "title": "Height",
+                  "type": "integer"
+               },
+               "readOnly": {
+                  "description": "Read only flag. Defines if the rect is locked to mutations.",
+                  "id": "/geotoolkit.util.Rect/properties/readOnly",
+                  "title": "Read Only",
+                  "type": "boolean"
+               },
+               "width": {
+                  "description": "The width of the Rect instance",
+                  "id": "/geotoolkit.util.Rect/properties/width",
+                  "title": "Width",
+                  "type": "integer"
+               },
+               "x": {
+                  "description": "X coordinate of left top corner",
+                  "id": "/geotoolkit.util.Rect/properties/x",
+                  "title": "X Coordinate",
+                  "type": "integer"
+               },
+               "y": {
+                  "description": "Y coordinate of left top corner",
+                  "id": "/geotoolkit.util.Rect/properties/y",
+                  "title": "Y Coordinate",
+                  "type": "integer"
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.util.Rect",
+                        "id": "/geotoolkit.util.Rect/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "id": "/geotoolkit.util.RgbaColor",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "alpha": {
+                  "default": 255,
+                  "description": "The number specifying the alpha channel.",
+                  "id": "/geotoolkit.util.RgbaColor/properties/alpha",
+                  "title": "Alpha",
+                  "type": "number"
+               },
+               "blue": {
+                  "default": 0,
+                  "description": "The number specifying the blue channel.",
+                  "id": "/geotoolkit.util.RgbaColor/properties/blue",
+                  "title": "Blue",
+                  "type": "number"
+               },
+               "green": {
+                  "default": 0,
+                  "description": "The number specifying the green channel.",
+                  "id": "/geotoolkit.util.RgbaColor/properties/green",
+                  "title": "Green",
+                  "type": "number"
+               },
+               "red": {
+                  "default": 0,
+                  "description": "The number specifying the red channel.",
+                  "id": "/geotoolkit.util.RgbaColor/properties/red",
+                  "title": "Red",
+                  "type": "number"
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "This schema describes Carnac transformations.",
+      "id": "/geotoolkit.util.Transformation",
+      "title": "Carnac Transformation Schema",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "_inversTransform": {
+                  "description": "Caches the current inverse transformation of this transformation",
+                  "id": "/geotoolkit.util.Transformation/properties/_inversTransform",
+                  "title": "Inverse Transform",
+                  "anyOf": [
+                     {
+                        "$ref": "/geotoolkit.util.Transformation"
+                     },
+                     {
+                        "type": "null"
+                     }
+                  ]
+               },
+               "dx": {
+                  "description": "The translate value of X coordinate.",
+                  "id": "/geotoolkit.util.Transformation/properties/dx",
+                  "title": "Translate X",
+                  "type": "number",
+                  "default": 0
+               },
+               "dy": {
+                  "description": "The translate value of Y coordinate.",
+                  "id": "/geotoolkit.util.Transformation/properties/dy",
+                  "title": "Translate Y",
+                  "type": "number",
+                  "default": 0
+               },
+               "xx": {
+                  "description": "The scale value of X coordinate",
+                  "id": "/geotoolkit.util.Transformation/properties/xx",
+                  "title": "Scale X",
+                  "type": "number",
+                  "default": 1
+               },
+               "xy": {
+                  "description": "The XY skew value",
+                  "id": "/geotoolkit.util.Transformation/properties/xy",
+                  "title": "XY Skew",
+                  "type": "number",
+                  "default": 0
+               },
+               "yx": {
+                  "description": "The YX skew value",
+                  "id": "/geotoolkit.util.Transformation/properties/yx",
+                  "title": "YX Skew",
+                  "type": "number",
+                  "default": 0
+               },
+               "yy": {
+                  "description": "The scale value of Y coordinate",
+                  "id": "/geotoolkit.util.Transformation/properties/yy",
+                  "title": "Scale Y",
+                  "type": "number",
+                  "default": 1
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.util.Transformation",
+                        "id": "/geotoolkit.util.Transformation/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   },
+   {
+      "additionalProperties": true,
+      "description": "This schema describes a geotoolkit Unit instance",
+      "title": "Unit Schema",
+      "id": "/geotoolkit.util.Unit",
+      "type": "object",
+      "allOf": [
+         {
+            "$ref": "/EmptyClass"
+         },
+         {
+            "properties": {
+               "name": {
+                  "description": "The name of the unit",
+                  "id": "/geotoolkit.util.Unit/properties/name",
+                  "title": "Name",
+                  "type": "string"
+               },
+               "quantitytype": {
+                  "type": "array",
+                  "description": "Represents the type of the unit",
+                  "id": "/geotoolkit.util.Unit/properties/quantitytype",
+                  "items": [
+                     {
+                        "type": "string"
+                     }
+                  ],
+                  "additionalItems": false
+               },
+               "symbol": {
+                  "description": "The symbol string representing the unit.",
+                  "id": "/geotoolkit.util.Unit/properties/symbol",
+                  "title": "Symbol",
+                  "type": "string"
+               },
+               "baseunitsymbol": {
+                  "description": "The symbol string representing the baseunit.",
+                  "id": "/geotoolkit.util.Unit/properties/baseunitsymbol",
+                  "title": "Symbol",
+                  "type": "string"
+               },
+               "a": {
+                  "description": "One of the factors used to convert a unit into the base unit",
+                  "id": "geotoolkit.util.Unit/properties/a",
+                  "title": "A factor",
+                  "type": "number"
+               },
+               "b": {
+                  "description": "One of the factors used to convert a unit into the base unit",
+                  "id": "geotoolkit.util.Unit/properties/b",
+                  "title": "B factor",
+                  "type": "number"
+               },
+               "c": {
+                  "description": "One of the factors used to convert a unit into the base unit",
+                  "id": "geotoolkit.util.Unit/properties/c",
+                  "title": "C factor",
+                  "type": "number"
+               },
+               "d": {
+                  "description": "One of the factors used to convert a unit into the base unit",
+                  "id": "geotoolkit.util.Unit/properties/d",
+                  "title": "D factor",
+                  "type": "number"
+               },
+               "description": {
+                  "default": "",
+                  "description": "The readable description of the unit.",
+                  "id": "geotoolkit.util.Unit/properties/description",
+                  "title": "Description",
+                  "type": "string"
+               },
+               "ClassName": {
+                  "allOf": [
+                     {
+                        "#ref": "/ClassName"
+                     },
+                     {
+                        "default": "geotoolkit.util.Unit",
+                        "id": "/geotoolkit.util.Unit/properties/ClassName"
+                     }
+                  ]
+               }
+            }
+         }
+      ]
+   }
+]
