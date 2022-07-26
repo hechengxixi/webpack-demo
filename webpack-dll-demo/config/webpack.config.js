@@ -414,8 +414,8 @@ module.exports = function (webpackEnv) {
               loader: require.resolve('babel-loader'),
               options: {
                 customize: require.resolve(
-                  // 'babel-preset-react-app/webpack-overrides',
-                  './babel-overrides'
+                  'babel-preset-react-app/webpack-overrides',
+                  // './babel-overrides'
                 ),
                 presets: [
                   [

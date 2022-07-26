@@ -2,7 +2,7 @@
  * @Author: 程羽 chengyu@iri.cn
  * @Date: 2022-07-19 09:17:21
  * @LastEditors: 程羽
- * @LastEditTime: 2022-07-20 15:05:30
+ * @LastEditTime: 2022-07-25 09:24:16
  * @Description:
  */
 /**
@@ -32,4 +32,6 @@ function Cjqx() {
   );
 }
 
-module.exports = Cjqx
+console.log(module);
+
+export default Cjqx
