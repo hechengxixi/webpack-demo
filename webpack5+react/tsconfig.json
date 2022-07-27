@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "module": "esnext",
+    "target": "es5",
+    "allowJs": true,
+    "jsx": "react-jsx", // TS17004: Cannot use JSX unless the '--jsx' flag is provided.
+    "moduleResolution": "node", // TS2792: Cannot find module 'react-dom/client'.
+    // "skipLibCheck": true
+  },
+  "include": [
+    "src"
+  ]
+}
