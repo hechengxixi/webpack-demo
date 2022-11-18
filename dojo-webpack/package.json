@@ -11,12 +11,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "dijit": "^1.10.0",
     "dojo": "^1.10.0",
     "dojo-util": "^1.10.0",
     "dojox": "^1.10.0",
-    "dojo-webpack-plugin": "^2.8.8",
+    "dojo-webpack-plugin": "^3.0.4",
     "clean-webpack-plugin": "^2.0.2",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
